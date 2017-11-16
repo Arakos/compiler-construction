@@ -5,8 +5,8 @@
  *      Author: Lars
  */
 
-#ifndef DATASTRUCTURES_H_
-#define DATASTRUCTURES_H_
+#ifndef UTIL_H_
+#define UTIL_H_
 
 #include <iostream>
 
@@ -23,13 +23,15 @@ enum Token {
   tok_identifier = -4,
   tok_number = -5,
 
-  tok_math_comp = -6,
+  tok_operator = -6,
 
   tok_eqauls = -7,
 
   tok_quot_mark = -10,
-  tok_open_curved_breaked = -13,
-  tok_close_curved_breaked = -14,
+  tok_l_curved_paren = -13,
+  tok_r_curved_paren = -14,
+  tok_lparen = -18,
+  tok_rparen = -19,
 
   tok_breacked = -15,
 
@@ -39,6 +41,8 @@ enum Token {
   tok_func = -11,
   tok_main = -12,
 
+  tok_var = -17,
+
   tok_endl = -16
 };
 
@@ -47,9 +51,10 @@ struct LexerResult {
 	int token;
 	int lineNumber = -1;
 	std::string identifierStr = "nix"; // Filled in if tok_identifier
-	double numValue = 0; // Filled in if tok_number
+	double numValue = -1; // Filled in if tok_number
+	char op = '#';
 };
 
 
 
-#endif /* DATASTRUCTURES_H_ */
+#endif /* UTIL_H_ */

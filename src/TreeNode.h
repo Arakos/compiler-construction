@@ -7,7 +7,8 @@
 
 #include <iostream>
 #include <vector>
-#include "DataStructures.h"
+
+#include "Util.h"
 
 using namespace std;
 
@@ -24,8 +25,7 @@ class TreeNode;
 
 class TreeNode {
 
-protected:
-
+public:
 	LexerResult lexerResult;
 	vector<TreeNode*> children;
 
@@ -42,7 +42,7 @@ public:
 		this->lexerResult = token;
 	}
 
-	~TreeNode() {
+	virtual ~TreeNode() {
 		for(TreeNode* child : children) {
 			if(child)
 				delete child;
@@ -50,28 +50,26 @@ public:
 	}
 
 	void addChild(TreeNode* n) {
-		children.push_back(n);
+		if(n) {
+			children.push_back(n);
+		} else {
+			cout << "AddChild method tried to add null as child..." << endl;
+		}
 	}
 
 
-	string toString() {
+	string virtual toString() {
 		return toString(0);
 	}
 
-	string toString(int depth) {
-		string result;
-		if(isErrorNode) {
-			result = " line[" + std::to_string(lexerResult.lineNumber) + "] Error: " + errMsg;
-		} else {
-			result = lexerResult.identifierStr;
-		}
-		result += "\n";
+	string virtual toString(int depth) {
+		string result = lexerResult.identifierStr + "\n";
 
 		for(TreeNode* child : children) {
 			if(child) {
 				result += getIntent(depth) + "\t->" + child->toString(depth+1);
 			} else
-				result += getIntent(depth) + "\t->(nullchild)\n";
+				result += getIntent(depth) + "\t->(nullchild!)\n";
 		}
 		return result;
 	}
@@ -99,6 +97,14 @@ public:
 
 	~ErrorNode() {
 
+	}
+
+	string toString() {
+		return toString(0);
+	}
+
+	string toString(int depth) {
+		return "line[" + std::to_string(lexerResult.lineNumber) + "]: " + errMsg;
 	}
 };
 

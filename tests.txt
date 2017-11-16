@@ -1,0 +1,7 @@
+tests/test1.go
+tests/test2.go
+
+tests/fail1.go
+tests/fail2.go
+
+tests/fail3.go
