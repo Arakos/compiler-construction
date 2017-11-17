@@ -12,6 +12,8 @@
 #include "Lexer.h"
 #include <map>
 #include "Util.h"
+#include "SymbolTable.h"
+#include <boost/lexical_cast.hpp>
 
 class Parser {
 
@@ -20,6 +22,11 @@ private:
 
 	LexerResult current;
 
+    SymbolTable Symboltable;
+
+    string sum;
+
+    const char * expressionToParse;
 	ErrorNode* unknowSymbolError() {
 		return customError("unknown symbol '" + current.identifierStr + "'");
 	}
@@ -42,12 +49,16 @@ public:
 	Parser(Lexer* lexer) {
 		this->lexer = lexer;
 		this->current.token = 0;
+        this->sum = "";
 	}
 
 	~Parser() {
 		delete lexer;
 	}
 
+    SymbolTable getTable(){
+        return this->Symboltable;
+    }
 	TreeNode* createAST() {
 		LexerResult rootLexRes;
 		rootLexRes.identifierStr = "root";
@@ -200,6 +211,7 @@ private:
 		step();
 		if(current.token == tok_identifier) {
 			TreeNode* funcName = new TreeNode(current);
+            string name = current.identifierStr;
 			step();
 			if(current.identifierStr == "(") {
 				// add function arguments as child of funcName here
@@ -215,6 +227,13 @@ private:
 							return functionBody;
 						}
 						if(current.identifierStr == "}") {
+                            Symbol s;
+                            s.name = name;
+                            s.type = "func";
+                            s.scope = Symboltable.ReturnScope();
+                            Symboltable.Insert(s);
+                            Symboltable.NewScope();
+
 							for(TreeNode* node : functionBody->children) {
 								funcName->addChild(node);
 							}
@@ -316,6 +335,9 @@ private:
 			return customError("invalid identifier for variable!");
 		}
 		TreeNode* varName = new TreeNode(current);
+        Symbol s;
+        string name = current.identifierStr;
+        s.name = name; //set Symbol name to add to Symbol-Table
 
 		step(); // consume var name
 		if(current.op != '=') {
@@ -324,8 +346,13 @@ private:
 			return unexpectedSymbolError("=");
 		}
 		step(); // consume =
-
+        this->sum = "";
 		TreeNode* expr = expression();
+        this->expressionToParse = sum.c_str();
+        s.value = expression2();
+        s.type = "int";
+        s.scope = this->Symboltable.ReturnScope();
+        this->Symboltable.Insert(s);
 		if(!expr || expr->isErrorNode) {
 			return expr;
 		}
@@ -364,6 +391,7 @@ private:
 		TreeNode* result = NULL;
 		if(current.op == '+' || current.op == '-') {
 			result = new TreeNode(current);
+            this->sum += current.op;
 			step(); // consume *
 			TreeNode* lhs = term();
 			if(!lhs || lhs->isErrorNode) {
@@ -410,6 +438,7 @@ private:
 		TreeNode* result = NULL;
 		if(current.op == '*' || current.op == '/') {
 			result = new TreeNode(current);
+            this->sum += current.op;
 			step(); // consume *
 			TreeNode* lhs = factor();
 			if(!lhs || lhs->isErrorNode) {
@@ -434,6 +463,7 @@ private:
 		r.identifierStr = "Factor";
 		result = new TreeNode(r);
 		if(current.identifierStr == "(") {
+            this->sum += "(";
 			step(); // consume (
 			TreeNode* expr = expression();
 			if(!expr || expr->isErrorNode) {
@@ -441,6 +471,7 @@ private:
 			}
 			result->addChild( expr );
 			if(current.identifierStr == ")") {
+                this->sum += ")";
 				step(); // consume )
 			} else {
 				delete result;
@@ -449,12 +480,85 @@ private:
 
 		} else if(current.token == tok_number) {
 			result->addChild( new TreeNode(current) );
+            int d = (int)current.numValue;
+            this->sum += to_string(d);
 			step(); // eat number
 		} else {
 			result = unexpectedSymbolError("( or Number");
 		}
 		return result;
 	}
+
+
+
+
+
+
+
+    char peek()
+    {
+        return *expressionToParse;
+    }
+
+    char get()
+    {
+        return *expressionToParse++;
+    }
+
+
+    int number()
+    {
+        int result = get() - '0';
+        while (peek() >= '0' && peek() <= '9')
+        {
+            result = 10*result + get() - '0';
+        }
+        return result;
+    }
+
+    int factor2()
+    {
+        if (peek() >= '0' && peek() <= '9')
+            return number();
+        else if (peek() == '(')
+        {
+            get(); // '('
+            int result = expression2();
+            get(); // ')'
+            return result;
+        }
+        else if (peek() == '-')
+        {
+            get();
+            return -factor2();
+        }
+        return 0; // error
+    }
+
+    int term2()
+    {
+        int result = factor2();
+        while (peek() == '*' || peek() == '/')
+            if (get() == '*')
+                result *= factor2();
+            else
+                result /= factor2();
+        return result;
+    }
+
+    int expression2()
+    {
+        int result = term2();
+        while (peek() == '+' || peek() == '-')
+            if (get() == '+')
+                result += term2();
+            else
+                result -= term2();
+        return result;
+    }
+
+
+
 
 };
 

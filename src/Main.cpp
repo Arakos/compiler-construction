@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : test.cpp
-// Author      : Lars
+// Name        : Main.cpp
+// Author      : Spas
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Compiler Construction practical work ...
@@ -44,10 +44,10 @@ bool parse(string input) {
 	bool error = root->isErrorNode;
 
 	cout << root->toString() << endl;
+    p->getTable().printSymbolTable();
 
-	delete p;
-	delete l;
 	delete root;
+    delete p;
 
 	return !error;
 }
@@ -62,7 +62,12 @@ void runTests() {
 	}
 
 	for(string filename : testfiles) {
-		string input = readFile(filename);
+		string tmp = filename;
+        if (tmp.find("\r")){
+            tmp.erase(tmp.size() - 1);
+        }
+		string input = readFile(tmp);
+		cout << testfiles.size() << endl;
 		if( parse(input) ) {
 			cout << "Test '" + filename + "' successful" << endl << BREAKER << endl;
 		} else {
@@ -77,15 +82,14 @@ int main() {
 
 	while(userInput != "exit") {
 		cout << BREAKER << endl;
-		cout << "1. Eenter filename to parse " << endl
-				<< "2. 'runtests' to parse the files specified in the 'tests.txt' file " << endl
-				<< "3. 'exit' to exit"<< endl;
+		cout    << "1. Enter filename to parse " << endl
+				<< "2. to parse the files specified in the 'tests.txt' file " << endl
+				<< "3. to exit"<< endl;
 		getline(cin, userInput);
-
-		if(userInput == "runtests") {
+		if(userInput == "2") {
 			runTests();
 
-		} else if(userInput == "exit") {
+		} else if(userInput == "3") {
 			break;
 
 		} else {
