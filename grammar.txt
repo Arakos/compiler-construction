@@ -1,0 +1,32 @@
+S0 -> package ID ; A 
+S0 -> A
+
+A -> import " ID " ; A
+A -> B
+
+B -> func ID () { C }
+B -> e
+
+C -> var ID = D ;
+C -> e
+
+D -> E
+D -> L
+
+E -> T E2
+
+E2 ->  + T E2
+E2 -> e
+
+T -> F T2
+
+T2 -> * F T2
+T2 -> e
+
+F -> ( E )
+F -> num
+F -> ID
+
+ID -> identifier
+
+L -> literal
