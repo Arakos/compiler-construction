@@ -30,7 +30,7 @@ public:
 	vector<TreeNode*> children;
 
 public:
-	bool isErrorNode = false;
+//	bool isErrorNode = false;
 	string errMsg = "";
 
 
@@ -63,15 +63,24 @@ public:
 	}
 
 	string virtual toString(int depth) {
-		string result = lexerResult.identifierStr + "\n";
+		string tmp = "";
+		if(this->lexerResult.token == tok_identifier) {
+			tmp = "'";
+		} else if(this->lexerResult.token == tok_literal) {
+			tmp = "\"";
+		}
+		string result = tmp + lexerResult.identifierStr + tmp + "\n";
 
 		for(TreeNode* child : children) {
 			if(child) {
 				result += getIntent(depth) + "\t->" + child->toString(depth+1);
-			} else
-				result += getIntent(depth) + "\t->(nullchild!)\n";
+			}
 		}
 		return result;
+	}
+
+	bool virtual isErrorNode() {
+		return false;
 	}
 
 	string getIntent(int depth) {
@@ -91,12 +100,16 @@ public:
 
 	ErrorNode(string msg, LexerResult lr) {
 		this->lexerResult = lr;
-		this->isErrorNode = true;
+//		this->isErrorNode = true;
 		this->errMsg = msg;
 	}
 
 	~ErrorNode() {
 
+	}
+
+	bool isErrorNode() {
+		return true;
 	}
 
 	string toString() {

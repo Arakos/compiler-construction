@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : test.cpp
-// Author      : Lars
+// Name        : Main.cpp
+// Author      : Spas
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Compiler Construction practical work ...
@@ -13,11 +13,13 @@
 #include "Lexer.h"
 #include "TreeNode.h"
 #include "Parser.h"
+
 using namespace std;
+
 
 std::string readFile(std::string filename) {
 	std::ifstream t(filename);
-	std::string str;
+	std::string str = "";
 	if(t) {
 		t.seekg(0, std::ios::end);
 		str.reserve(t.tellg());
@@ -41,13 +43,13 @@ bool parse(string input) {
 	Lexer* l = new Lexer(input);
 	Parser* p = new Parser( l );
 	TreeNode* root = p->createAST();
-	bool error = root->isErrorNode;
+	bool error = root->isErrorNode();
 
-	cout << root->toString() << endl;
+	cout << "Abstract Syntax Tree:" << endl << root->toString() << endl << endl;
+	cout << "Symbole Table:" << endl << p->getSymbolTableAsString() << endl << endl << endl << endl;
 
-	delete p;
-	delete l;
 	delete root;
+    delete p;
 
 	return !error;
 }
@@ -62,7 +64,11 @@ void runTests() {
 	}
 
 	for(string filename : testfiles) {
-		string input = readFile(filename);
+		string tmp = filename;
+//        if (tmp.find("\r")){
+//            tmp.erase(tmp.size() - 1);
+//        }
+		string input = readFile(tmp);
 		if( parse(input) ) {
 			cout << "Test '" + filename + "' successful" << endl << BREAKER << endl;
 		} else {
@@ -73,19 +79,30 @@ void runTests() {
 
 int main() {
 
+	cout << "Hallo, bin Compiler Davi's, seit 16 Tagen Leiter für Grammatikzufriedenheit bei 1 & 1. Und ich compiliere erst, wenn das Programm läuft." << endl << endl;
+
 	string userInput = "";
 
 	while(userInput != "exit") {
 		cout << BREAKER << endl;
-		cout << "1. Eenter filename to parse " << endl
-				<< "2. 'runtests' to parse the files specified in the 'tests.txt' file " << endl
-				<< "3. 'exit' to exit"<< endl;
+		cout    << "1. Enter (1) to parse a file by given name" << endl
+				<< "2. Enter (2) to parse the files specified in the 'tests.txt' file" << endl
+				<< "3. Enter code to parse it right away"<< endl
+				<< "4. Enter (0) to exit" << endl;;
 		getline(cin, userInput);
 
-		if(userInput == "runtests") {
+		if(userInput == "1") {
+			cout << "Filename: ";
+			getline(cin, userInput);
+			string tmp = readFile(userInput);
+			if(!tmp.empty()) {
+				parse(tmp);
+			}
+
+		} else if(userInput == "2") {
 			runTests();
 
-		} else if(userInput == "exit") {
+		} else if(userInput == "0") {
 			break;
 
 		} else {
