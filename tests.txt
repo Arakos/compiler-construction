@@ -1,7 +1,12 @@
 tests/test1.go
 tests/test2.go
+tests/test3.go
+tests/test4.go
+tests/test5.go
 
 tests/fail1.go
 tests/fail2.go
-
 tests/fail3.go
+tests/fail4.go
+tests/fail5.go
+tests/fail6.go

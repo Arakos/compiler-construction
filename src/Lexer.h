@@ -22,6 +22,8 @@ private:
 
 	bool eof = false;
 
+	int literalStringMode = 0;
+
 	LexerResult handleAlphabetCharSeq() {
 		LexerResult result;
 		char lastChar = input[idx-1];
@@ -78,6 +80,27 @@ private:
 		return gettok();
 	}
 
+
+	LexerResult handleLiteral() {
+		string tmp = "";
+		char lastChar = 'c';
+		while(lastChar != EOF) {
+			lastChar = input[idx++];
+			if(lastChar == '\n') {
+				currentLine++;
+			}
+			if(lastChar == '"') {
+				break;
+			}
+			tmp += lastChar;
+		}
+
+		LexerResult lr;
+		lr.token = tok_literal;
+		lr.identifierStr = tmp;
+		return lr;
+	}
+
 public :
 	Lexer(string input) {
 		setInput(input);
@@ -125,7 +148,7 @@ public :
 		} else if (isdigit((int)lastChar) || lastChar == '.') {   // Number: [0-9.]+
 			result = handleNumberSeq();
 
-		} else if (lastChar == '#') {
+		} else if (lastChar == '/' && input[idx] == '/') {
 			result = handleComment();
 
 		} else if(lastChar == '<'
@@ -142,8 +165,7 @@ public :
 			result.op = '=';
 
 		} else if(lastChar == '"' /* " */) {
-			result.token = tok_quot_mark;
-			result.identifierStr = "\"";
+			result = handleLiteral();
 
 		} else if(lastChar == '{'|| lastChar == '}' || lastChar == '(' || lastChar == ')') {
 			result.token = tok_breacked;

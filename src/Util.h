@@ -22,6 +22,7 @@ enum Token {
   // primary
   tok_identifier = -4,
   tok_number = -5,
+  tok_literal = -21,
 
   tok_operator = -6,
 
@@ -39,6 +40,7 @@ enum Token {
   tok_import = -9,
 
   tok_func = -11,
+  tok_func_body = -20,
   tok_main = -12,
 
   tok_var = -17,
@@ -53,6 +55,7 @@ struct LexerResult {
 	std::string identifierStr = "nix"; // Filled in if tok_identifier
 	double numValue = -1; // Filled in if tok_number
 	char op = '#';
+	int id;
 };
 
 
