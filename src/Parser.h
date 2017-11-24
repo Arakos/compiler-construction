@@ -48,6 +48,14 @@ private:
 		return res;
 	}
 
+	bool ensureEndline() {
+		bool res = current.token == tok_endl;
+		if(res) {
+			step();		// consume ;
+		}
+		return res;
+	}
+
 public:
 	Parser(Lexer* lexer) {
 		this->lexer = lexer;
@@ -56,7 +64,9 @@ public:
 	}
 
 	~Parser() {
-		delete lexer;
+		if(lexer) {
+			delete lexer;
+		}
 	}
 
     map<int, LexerResult> getSymbolTable() {
@@ -105,22 +115,33 @@ private:
 
 	TreeNode* topLevelSwitcher(TreeNode* root) {
 		bool error = false;
+
+		TreeNode* res = NULL;
+		res = package();
+
+		if(res->isErrorNode()) {
+			return res;
+		}
+		root->addChild(res);
+
+		res = import(NULL);
+		if(res) {
+			if(res->isErrorNode()) {
+				return res;
+			}
+			root->addChild(res);
+		}
+
+
 		while(!error && current.token != tok_eof) {
-			step();
 			TreeNode* result;
 			switch(current.token) {
-				case tok_package:
-					result = package();
-					break;
-
-				case tok_import:
-					result = import();
-					break;
 
 				case tok_func:
 					result = funcDefinition();
 					if(result && !result->isErrorNode() && current.identifierStr == "}") {
 						current.token = tok_endl;
+						current.identifierStr = ";";
 					}
 					break;
 
@@ -147,57 +168,72 @@ private:
 				return NULL;
 			}
 
-			if(current.token != tok_endl) {
+			if(!ensureEndline()) {
 //				cout << "unknown symbol: '" + current.identifierStr + "' at line: " + std::to_string(current.lineNumber)  << " - expected >;<"<< endl;
 				return unexpectedSymbolError(";");
 			}
+
 		}
 		return root;
 	}
 
 
 	TreeNode* package() {
-
+		step();
 		if(current.token != tok_package) {
-			cout << "Invalid call to function package! current token is not package!" << endl;
-			return NULL;
+			return unexpectedSymbolError("package");
 		}
 
 		TreeNode* result = new TreeNode(current);
 
-		step();
+		step(); // consume package
 
 		TreeNode* packageName;
 		if(current.token != tok_identifier) {
 			delete result;
-			return unexpectedSymbolError("package identifier");
+			return unexpectedSymbolError("identifier");
 		}
 		packageName = new TreeNode(current);
 		result->addChild(packageName);
-		step();	// step to ;
+		step(); // consume id
+
+		if(!ensureEndline()) {
+			delete result;
+			delete packageName;
+			return unexpectedSymbolError(";");
+		}
 		return result;
 	}
 
-	TreeNode* import() {
-		string msg = "";
-		TreeNode* result = NULL ;
-//		TreeNode* name = NULL;
+	/**
+	 * 	 return null = no imports
+	 *	 return errornode = error
+	 * 	 return treeNode = node with all imports as children
+	 */
+	TreeNode* import(TreeNode* importsNode) {
 
 		if(current.token != tok_import) {
-			cout << "Invalid call to importName function! Last token must be the import keyword!" << endl;
-			return NULL;
+			return importsNode;
 		}
 
-		result = new TreeNode(current);
-		step();
+		if(!importsNode) {
+			importsNode = new TreeNode(current);
+		}
+		step(); // consume import
+
 		if(current.token != tok_literal) {
-			delete result;
-			return unexpectedSymbolError("literal starting with >\"< ");
+			delete importsNode;
+			return unexpectedSymbolError("import name in \"");
 		}
-		result->addChild( new TreeNode(current) );
-		step(); // consume literal
+		importsNode->addChild(new TreeNode(current));
+		step(); // consume "literal"
 
-		return result;
+		if(!ensureEndline()) {
+			delete importsNode;
+			return unexpectedSymbolError(";");
+		}
+
+		return import(importsNode);
 	}
 
 	// func name ( ) { funcBody }, else returns error or null

@@ -69,6 +69,7 @@ void runTests() {
 //            tmp.erase(tmp.size() - 1);
 //        }
 		string input = readFile(tmp);
+		cout << endl << endl << endl << "Parsing file: " << tmp << endl;
 		if( parse(input) ) {
 			cout << "Test '" + filename + "' successful" << endl << BREAKER << endl;
 		} else {
@@ -79,7 +80,7 @@ void runTests() {
 
 int main() {
 
-	cout << "Hallo, bin Compiler Davi's, seit 16 Tagen Leiter für Grammatikzufriedenheit bei 1 & 1. Und ich compiliere erst, wenn das Programm läuft." << endl << endl;
+	cout << "Hallo, bin Compiler D'Avis, seit 16 Tagen Leiter für Grammatikzufriedenheit bei 1 & 1. Und ich compiliere erst, wenn das Programm läuft." << endl << endl;
 
 	string userInput = "";
 

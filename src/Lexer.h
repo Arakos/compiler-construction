@@ -115,7 +115,7 @@ public :
 		idx = 0;
 		currentLine = 1;
 		eof = false;
-		cout << "Lexer input:" << endl << BREAKER << endl << input << endl << BREAKER << endl;
+		cout << "Lexer input file dump:" << endl << endl << input << endl << endl;
 	}
 
 	/// gettok - Return the next token from standard input.

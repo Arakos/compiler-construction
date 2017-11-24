@@ -1,5 +1,4 @@
 S0 -> package ID ; A 
-S0 -> A
 
 A -> import " ID " ; A
 A -> B
