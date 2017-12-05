@@ -1,0 +1,1322 @@
+Vagrant Provision Log:
+[0;32mStarting provision...
+[0;33mSetting Locale
+Generating locales (this might take a while)...
+  en_US.UTF-8... done
+Generation complete.
+[1;24r(B)0[m[1;24r[H[J[1;1H[7m                                                                                [2;1H                                                                                [3;1H                                                                                [4;1H                                                                                [5;1H                                                                                [6;1H                                                                                [7;1H                                                                                [8;1H                                                                                [9;1H                                                                                [10;1H                                                                                [11;1H                                                                                [12;1H                                                                                [13;1H                                                                                [14;1H                                                                                [15;1H                                                                                [16;1H                                                                                [17;1H                                                                                [18;1H                                                                                [19;1H                                                                                [20;1H                                                                                [21;1H                                                                                [22;1H                                                                                [23;1H                                                                                [24;1H                                                                               [1;1HPackage configuration[2;2H┌──────────────────────────┤ Configuring locales ├──────────────────────────┐[3;2H│ Locales are a framework to switch between multiple languages and allow    │[4;2H│ users to use their language, country, characters, collation order, etc.   │[5;2H│[75C│[6;2H│ Please choose which locales to generate. UTF-8 locales should be chosen   │[7;2H│ by default, particularly for new installations. Other character sets may  │[8;2H│ be useful for backwards compatibility with older systems and software.    │[9;2H│[75C│[10;2H│ Locales to be generated:[50C│[11;2H│[75C│[12;2H│    [ ] All locales[52C↑   │[13;2H│    [ ] aa_DJ ISO-8859-1[47C▮   │[14;2H│    [ ] aa_DJ.UTF-8 UTF-8[46C▒   │[15;2H│    [ ] aa_ER UTF-8[52C▒   │[16;2H│    [ ] aa_ER@saaho UTF-8[46C▒   │[17;2H│    [ ] aa_ET UTF-8[52C↓   │[18;2H│[75C│[19;2H│[75C│[20;2H│[20C<Ok>[24C<Cancel>[19C│[21;2H│[75C│[22;2H└───────────────────────────────────────────────────────────────────────────┘[12;11HFailed to open terminal.debconf: whiptail output the above errors, giving up!
+[0;33mUpdating packages...
+[0;39m
+Get:1 http://security.ubuntu.com/ubuntu zesty-security InRelease [89.2 kB]
+Hit:2 http://archive.ubuntu.com/ubuntu zesty InRelease
+Get:3 http://archive.ubuntu.com/ubuntu zesty-updates InRelease [89.2 kB]
+Get:4 http://archive.ubuntu.com/ubuntu zesty-backports InRelease [89.2 kB]
+Get:5 http://archive.ubuntu.com/ubuntu zesty/multiverse Sources [184 kB]
+Get:6 http://archive.ubuntu.com/ubuntu zesty/main Sources [912 kB]
+Get:7 http://security.ubuntu.com/ubuntu zesty-security/universe Sources [30.3 kB]
+Get:8 http://security.ubuntu.com/ubuntu zesty-security/main Sources [62.9 kB]
+Get:9 http://security.ubuntu.com/ubuntu zesty-security/restricted Sources [964 B]
+Get:10 http://security.ubuntu.com/ubuntu zesty-security/multiverse Sources [1,348 B]
+Get:11 http://security.ubuntu.com/ubuntu zesty-security/main i386 Packages [169 kB]
+Get:12 http://archive.ubuntu.com/ubuntu zesty/universe Sources [8,459 kB]
+Get:13 http://security.ubuntu.com/ubuntu zesty-security/universe i386 Packages [88.2 kB]
+Get:14 http://archive.ubuntu.com/ubuntu zesty/restricted Sources [5,064 B]
+Get:15 http://archive.ubuntu.com/ubuntu zesty-updates/main Sources [104 kB]
+Get:16 http://archive.ubuntu.com/ubuntu zesty-updates/restricted Sources [1,436 B]
+Get:17 http://archive.ubuntu.com/ubuntu zesty-updates/universe Sources [69.3 kB]
+Get:18 http://archive.ubuntu.com/ubuntu zesty-updates/multiverse Sources [4,696 B]
+Get:19 http://archive.ubuntu.com/ubuntu zesty-updates/main i386 Packages [244 kB]
+Get:20 http://archive.ubuntu.com/ubuntu zesty-updates/universe i386 Packages [165 kB]
+Get:21 http://archive.ubuntu.com/ubuntu zesty-backports/main Sources [1,180 B]
+Get:22 http://archive.ubuntu.com/ubuntu zesty-backports/universe Sources [2,888 B]
+Fetched 10.8 MB in 12s (854 kB/s)
+Reading package lists...
+[0;33mUpgrading packages...
+[0;39m
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+[0;33mInstalling build-essential
+[0;39m
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  binutils cpp cpp-6 dpkg-dev fakeroot g++ g++-6 gcc gcc-6
+  libalgorithm-diff-perl libalgorithm-diff-xs-perl libalgorithm-merge-perl
+  libasan3 libatomic1 libc-dev-bin libc6-dev libcc1-0 libcilkrts5 libdpkg-perl
+  libfakeroot libfile-fcntllock-perl libgcc-6-dev libgomp1 libisl15 libitm1
+  libmpc3 libmpx2 libquadmath0 libstdc++-6-dev libubsan0 linux-libc-dev make
+  manpages-dev
+Suggested packages:
+  binutils-doc cpp-doc gcc-6-locales debian-keyring g++-multilib
+  g++-6-multilib gcc-6-doc libstdc++6-6-dbg gcc-multilib autoconf automake
+  libtool flex bison gdb gcc-doc gcc-6-multilib libgcc1-dbg libgomp1-dbg
+  libitm1-dbg libatomic1-dbg libasan3-dbg liblsan0-dbg libtsan0-dbg
+  libubsan0-dbg libcilkrts5-dbg libmpx2-dbg libquadmath0-dbg glibc-doc
+  libstdc++-6-doc make-doc
+The following NEW packages will be installed:
+  binutils build-essential cpp cpp-6 dpkg-dev fakeroot g++ g++-6 gcc gcc-6
+  libalgorithm-diff-perl libalgorithm-diff-xs-perl libalgorithm-merge-perl
+  libasan3 libatomic1 libc-dev-bin libc6-dev libcc1-0 libcilkrts5 libdpkg-perl
+  libfakeroot libfile-fcntllock-perl libgcc-6-dev libgomp1 libisl15 libitm1
+  libmpc3 libmpx2 libquadmath0 libstdc++-6-dev libubsan0 linux-libc-dev make
+  manpages-dev
+0 upgraded, 34 newly installed, 0 to remove and 0 not upgraded.
+Need to get 35.9 MB of archives.
+After this operation, 145 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Abort.
+[0;33mInstalling GNU Tool Chain...
+[0;39m
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  binutils cpp cpp-6 gcc-6 libasan3 libatomic1 libc-dev-bin libc6-dev libcc1-0
+  libcilkrts5 libgcc-6-dev libgomp1 libisl15 libitm1 libmpc3 libmpx2
+  libquadmath0 libubsan0 linux-libc-dev manpages-dev
+Suggested packages:
+  binutils-doc cpp-doc gcc-6-locales gcc-multilib make autoconf automake
+  libtool flex bison gdb gcc-doc gcc-6-multilib gcc-6-doc libgcc1-dbg
+  libgomp1-dbg libitm1-dbg libatomic1-dbg libasan3-dbg liblsan0-dbg
+  libtsan0-dbg libubsan0-dbg libcilkrts5-dbg libmpx2-dbg libquadmath0-dbg
+  glibc-doc
+The following NEW packages will be installed:
+  binutils cpp cpp-6 gcc gcc-6 libasan3 libatomic1 libc-dev-bin libc6-dev
+  libcc1-0 libcilkrts5 libgcc-6-dev libgomp1 libisl15 libitm1 libmpc3 libmpx2
+  libquadmath0 libubsan0 linux-libc-dev manpages-dev
+0 upgraded, 21 newly installed, 0 to remove and 0 not upgraded.
+Need to get 25.6 MB of archives.
+After this operation, 100 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu zesty/main i386 libmpc3 i386 1.0.3-1 [44.2 kB]
+Get:2 http://archive.ubuntu.com/ubuntu zesty/main i386 binutils i386 2.28-3ubuntu1 [2,539 kB]
+Get:3 http://archive.ubuntu.com/ubuntu zesty/main i386 libisl15 i386 0.18-1 [627 kB]
+Get:4 http://archive.ubuntu.com/ubuntu zesty/main i386 cpp-6 i386 6.3.0-12ubuntu2 [6,832 kB]
+Get:5 http://archive.ubuntu.com/ubuntu zesty/main i386 cpp i386 4:6.3.0-2ubuntu1 [27.6 kB]
+Get:6 http://archive.ubuntu.com/ubuntu zesty/main i386 libcc1-0 i386 6.3.0-12ubuntu2 [33.0 kB]
+Get:7 http://archive.ubuntu.com/ubuntu zesty/main i386 libgomp1 i386 6.3.0-12ubuntu2 [80.0 kB]
+Get:8 http://archive.ubuntu.com/ubuntu zesty/main i386 libitm1 i386 6.3.0-12ubuntu2 [31.2 kB]
+Get:9 http://archive.ubuntu.com/ubuntu zesty/main i386 libatomic1 i386 6.3.0-12ubuntu2 [9,926 B]
+Get:10 http://archive.ubuntu.com/ubuntu zesty/main i386 libasan3 i386 6.3.0-12ubuntu2 [308 kB]
+Get:11 http://archive.ubuntu.com/ubuntu zesty/main i386 libubsan0 i386 6.3.0-12ubuntu2 [121 kB]
+Get:12 http://archive.ubuntu.com/ubuntu zesty/main i386 libcilkrts5 i386 6.3.0-12ubuntu2 [45.8 kB]
+Get:13 http://archive.ubuntu.com/ubuntu zesty/main i386 libmpx2 i386 6.3.0-12ubuntu2 [12.9 kB]
+Get:14 http://archive.ubuntu.com/ubuntu zesty/main i386 libquadmath0 i386 6.3.0-12ubuntu2 [205 kB]
+Get:15 http://archive.ubuntu.com/ubuntu zesty/main i386 libgcc-6-dev i386 6.3.0-12ubuntu2 [2,311 kB]
+Get:16 http://archive.ubuntu.com/ubuntu zesty/main i386 gcc-6 i386 6.3.0-12ubuntu2 [7,425 kB]
+Get:17 http://archive.ubuntu.com/ubuntu zesty/main i386 gcc i386 4:6.3.0-2ubuntu1 [5,248 B]
+Get:18 http://archive.ubuntu.com/ubuntu zesty-updates/main i386 libc-dev-bin i386 2.24-9ubuntu2.2 [66.7 kB]
+Get:19 http://archive.ubuntu.com/ubuntu zesty-updates/main i386 linux-libc-dev i386 4.10.0-40.44 [898 kB]
+Get:20 http://archive.ubuntu.com/ubuntu zesty-updates/main i386 libc6-dev i386 2.24-9ubuntu2.2 [1,869 kB]
+Get:21 http://archive.ubuntu.com/ubuntu zesty/main i386 manpages-dev all 4.09-2 [2,113 kB]
+dpkg-preconfigure: unable to re-open stdin: No such file or directory
+Fetched 25.6 MB in 21s (1,194 kB/s)
+Selecting previously unselected package libmpc3:i386.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 56438 files and directories currently installed.)
+Preparing to unpack .../00-libmpc3_1.0.3-1_i386.deb ...
+Unpacking libmpc3:i386 (1.0.3-1) ...
+Selecting previously unselected package binutils.
+Preparing to unpack .../01-binutils_2.28-3ubuntu1_i386.deb ...
+Unpacking binutils (2.28-3ubuntu1) ...
+Selecting previously unselected package libisl15:i386.
+Preparing to unpack .../02-libisl15_0.18-1_i386.deb ...
+Unpacking libisl15:i386 (0.18-1) ...
+Selecting previously unselected package cpp-6.
+Preparing to unpack .../03-cpp-6_6.3.0-12ubuntu2_i386.deb ...
+Unpacking cpp-6 (6.3.0-12ubuntu2) ...
+Selecting previously unselected package cpp.
+Preparing to unpack .../04-cpp_4%3a6.3.0-2ubuntu1_i386.deb ...
+Unpacking cpp (4:6.3.0-2ubuntu1) ...
+Selecting previously unselected package libcc1-0:i386.
+Preparing to unpack .../05-libcc1-0_6.3.0-12ubuntu2_i386.deb ...
+Unpacking libcc1-0:i386 (6.3.0-12ubuntu2) ...
+Selecting previously unselected package libgomp1:i386.
+Preparing to unpack .../06-libgomp1_6.3.0-12ubuntu2_i386.deb ...
+Unpacking libgomp1:i386 (6.3.0-12ubuntu2) ...
+Selecting previously unselected package libitm1:i386.
+Preparing to unpack .../07-libitm1_6.3.0-12ubuntu2_i386.deb ...
+Unpacking libitm1:i386 (6.3.0-12ubuntu2) ...
+Selecting previously unselected package libatomic1:i386.
+Preparing to unpack .../08-libatomic1_6.3.0-12ubuntu2_i386.deb ...
+Unpacking libatomic1:i386 (6.3.0-12ubuntu2) ...
+Selecting previously unselected package libasan3:i386.
+Preparing to unpack .../09-libasan3_6.3.0-12ubuntu2_i386.deb ...
+Unpacking libasan3:i386 (6.3.0-12ubuntu2) ...
+Selecting previously unselected package libubsan0:i386.
+Preparing to unpack .../10-libubsan0_6.3.0-12ubuntu2_i386.deb ...
+Unpacking libubsan0:i386 (6.3.0-12ubuntu2) ...
+Selecting previously unselected package libcilkrts5:i386.
+Preparing to unpack .../11-libcilkrts5_6.3.0-12ubuntu2_i386.deb ...
+Unpacking libcilkrts5:i386 (6.3.0-12ubuntu2) ...
+Selecting previously unselected package libmpx2:i386.
+Preparing to unpack .../12-libmpx2_6.3.0-12ubuntu2_i386.deb ...
+Unpacking libmpx2:i386 (6.3.0-12ubuntu2) ...
+Selecting previously unselected package libquadmath0:i386.
+Preparing to unpack .../13-libquadmath0_6.3.0-12ubuntu2_i386.deb ...
+Unpacking libquadmath0:i386 (6.3.0-12ubuntu2) ...
+Selecting previously unselected package libgcc-6-dev:i386.
+Preparing to unpack .../14-libgcc-6-dev_6.3.0-12ubuntu2_i386.deb ...
+Unpacking libgcc-6-dev:i386 (6.3.0-12ubuntu2) ...
+Selecting previously unselected package gcc-6.
+Preparing to unpack .../15-gcc-6_6.3.0-12ubuntu2_i386.deb ...
+Unpacking gcc-6 (6.3.0-12ubuntu2) ...
+Selecting previously unselected package gcc.
+Preparing to unpack .../16-gcc_4%3a6.3.0-2ubuntu1_i386.deb ...
+Unpacking gcc (4:6.3.0-2ubuntu1) ...
+Selecting previously unselected package libc-dev-bin.
+Preparing to unpack .../17-libc-dev-bin_2.24-9ubuntu2.2_i386.deb ...
+Unpacking libc-dev-bin (2.24-9ubuntu2.2) ...
+Selecting previously unselected package linux-libc-dev:i386.
+Preparing to unpack .../18-linux-libc-dev_4.10.0-40.44_i386.deb ...
+Unpacking linux-libc-dev:i386 (4.10.0-40.44) ...
+Selecting previously unselected package libc6-dev:i386.
+Preparing to unpack .../19-libc6-dev_2.24-9ubuntu2.2_i386.deb ...
+Unpacking libc6-dev:i386 (2.24-9ubuntu2.2) ...
+Selecting previously unselected package manpages-dev.
+Preparing to unpack .../20-manpages-dev_4.09-2_all.deb ...
+Unpacking manpages-dev (4.09-2) ...
+Setting up libquadmath0:i386 (6.3.0-12ubuntu2) ...
+Setting up libgomp1:i386 (6.3.0-12ubuntu2) ...
+Setting up libatomic1:i386 (6.3.0-12ubuntu2) ...
+Setting up libcc1-0:i386 (6.3.0-12ubuntu2) ...
+Setting up libasan3:i386 (6.3.0-12ubuntu2) ...
+Setting up libcilkrts5:i386 (6.3.0-12ubuntu2) ...
+Setting up libubsan0:i386 (6.3.0-12ubuntu2) ...
+Setting up linux-libc-dev:i386 (4.10.0-40.44) ...
+Setting up libmpx2:i386 (6.3.0-12ubuntu2) ...
+Setting up libisl15:i386 (0.18-1) ...
+Processing triggers for libc-bin (2.24-9ubuntu2.2) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+Setting up libmpc3:i386 (1.0.3-1) ...
+Setting up binutils (2.28-3ubuntu1) ...
+Setting up cpp-6 (6.3.0-12ubuntu2) ...
+Setting up libc-dev-bin (2.24-9ubuntu2.2) ...
+Setting up manpages-dev (4.09-2) ...
+Setting up libc6-dev:i386 (2.24-9ubuntu2.2) ...
+Setting up libitm1:i386 (6.3.0-12ubuntu2) ...
+Setting up cpp (4:6.3.0-2ubuntu1) ...
+Setting up libgcc-6-dev:i386 (6.3.0-12ubuntu2) ...
+Setting up gcc-6 (6.3.0-12ubuntu2) ...
+Setting up gcc (4:6.3.0-2ubuntu1) ...
+Processing triggers for libc-bin (2.24-9ubuntu2.2) ...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  g++-6 libstdc++-6-dev
+Suggested packages:
+  g++-multilib g++-6-multilib gcc-6-doc libstdc++6-6-dbg libstdc++-6-doc
+The following NEW packages will be installed:
+  g++ g++-6 libstdc++-6-dev
+0 upgraded, 3 newly installed, 0 to remove and 0 not upgraded.
+Need to get 9,100 kB of archives.
+After this operation, 39.6 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu zesty/main i386 libstdc++-6-dev i386 6.3.0-12ubuntu2 [1,471 kB]
+Get:2 http://archive.ubuntu.com/ubuntu zesty/main i386 g++-6 i386 6.3.0-12ubuntu2 [7,628 kB]
+Get:3 http://archive.ubuntu.com/ubuntu zesty/main i386 g++ i386 4:6.3.0-2ubuntu1 [1,488 B]
+dpkg-preconfigure: unable to re-open stdin: No such file or directory
+Fetched 9,100 kB in 9s (1,006 kB/s)
+Selecting previously unselected package libstdc++-6-dev:i386.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 60393 files and directories currently installed.)
+Preparing to unpack .../libstdc++-6-dev_6.3.0-12ubuntu2_i386.deb ...
+Unpacking libstdc++-6-dev:i386 (6.3.0-12ubuntu2) ...
+Selecting previously unselected package g++-6.
+Preparing to unpack .../g++-6_6.3.0-12ubuntu2_i386.deb ...
+Unpacking g++-6 (6.3.0-12ubuntu2) ...
+Selecting previously unselected package g++.
+Preparing to unpack .../g++_4%3a6.3.0-2ubuntu1_i386.deb ...
+Unpacking g++ (4:6.3.0-2ubuntu1) ...
+Setting up libstdc++-6-dev:i386 (6.3.0-12ubuntu2) ...
+Setting up g++-6 (6.3.0-12ubuntu2) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+Setting up g++ (4:6.3.0-2ubuntu1) ...
+update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
+[0;33mInstalling Make...
+[0;39m
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Suggested packages:
+  make-doc
+The following NEW packages will be installed:
+  make
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 153 kB of archives.
+After this operation, 369 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu zesty/main i386 make i386 4.1-9.1 [153 kB]
+dpkg-preconfigure: unable to re-open stdin: No such file or directory
+Fetched 153 kB in 0s (919 kB/s)
+Selecting previously unselected package make.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 61213 files and directories currently installed.)
+Preparing to unpack .../archives/make_4.1-9.1_i386.deb ...
+Unpacking make (4.1-9.1) ...
+Setting up make (4.1-9.1) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+[0;33mInstalling m4, GNU Bison, autoconf, autopoint, automake, gettext, help2man, GNU texinfo, GNU indent, libtool...
+[0;39m
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Suggested packages:
+  m4-doc
+The following NEW packages will be installed:
+  m4
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 196 kB of archives.
+After this operation, 350 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu zesty/main i386 m4 i386 1.4.18-1 [196 kB]
+dpkg-preconfigure: unable to re-open stdin: No such file or directory
+Fetched 196 kB in 0s (656 kB/s)
+Selecting previously unselected package m4.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 61229 files and directories currently installed.)
+Preparing to unpack .../archives/m4_1.4.18-1_i386.deb ...
+Unpacking m4 (1.4.18-1) ...
+Processing triggers for install-info (6.3.0.dfsg.1-1) ...
+Setting up m4 (1.4.18-1) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libbison-dev
+Suggested packages:
+  bison-doc
+The following NEW packages will be installed:
+  bison libbison-dev
+0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+Need to get 594 kB of archives.
+After this operation, 1,806 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu zesty/main i386 libbison-dev i386 2:3.0.4.dfsg-1build1 [339 kB]
+Get:2 http://archive.ubuntu.com/ubuntu zesty/main i386 bison i386 2:3.0.4.dfsg-1build1 [255 kB]
+dpkg-preconfigure: unable to re-open stdin: No such file or directory
+Fetched 594 kB in 0s (903 kB/s)
+Selecting previously unselected package libbison-dev:i386.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 61289 files and directories currently installed.)
+Preparing to unpack .../libbison-dev_2%3a3.0.4.dfsg-1build1_i386.deb ...
+Unpacking libbison-dev:i386 (2:3.0.4.dfsg-1build1) ...
+Selecting previously unselected package bison.
+Preparing to unpack .../bison_2%3a3.0.4.dfsg-1build1_i386.deb ...
+Unpacking bison (2:3.0.4.dfsg-1build1) ...
+Setting up libbison-dev:i386 (2:3.0.4.dfsg-1build1) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+Setting up bison (2:3.0.4.dfsg-1build1) ...
+update-alternatives: using /usr/bin/bison.yacc to provide /usr/bin/yacc (yacc) in auto mode
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  automake autotools-dev
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc libtool gettext
+The following NEW packages will be installed:
+  autoconf automake autotools-dev
+0 upgraded, 3 newly installed, 0 to remove and 0 not upgraded.
+Need to get 870 kB of archives.
+After this operation, 3,589 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu zesty/main i386 autoconf all 2.69-10 [321 kB]
+Get:2 http://archive.ubuntu.com/ubuntu zesty/main i386 autotools-dev all 20161112.1 [39.5 kB]
+Get:3 http://archive.ubuntu.com/ubuntu zesty/main i386 automake all 1:1.15-5ubuntu1 [509 kB]
+dpkg-preconfigure: unable to re-open stdin: No such file or directory
+Fetched 870 kB in 1s (655 kB/s)
+Selecting previously unselected package autoconf.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 61342 files and directories currently installed.)
+Preparing to unpack .../autoconf_2.69-10_all.deb ...
+Unpacking autoconf (2.69-10) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../autotools-dev_20161112.1_all.deb ...
+Unpacking autotools-dev (20161112.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../automake_1%3a1.15-5ubuntu1_all.deb ...
+Unpacking automake (1:1.15-5ubuntu1) ...
+Processing triggers for install-info (6.3.0.dfsg.1-1) ...
+Setting up autoconf (2.69-10) ...
+Setting up autotools-dev (20161112.1) ...
+Setting up automake (1:1.15-5ubuntu1) ...
+update-alternatives: using /usr/bin/automake-1.15 to provide /usr/bin/automake (automake) in auto mode
+Processing triggers for man-db (2.7.6.1-2) ...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  autopoint
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 412 kB of archives.
+After this operation, 468 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu zesty/main i386 autopoint all 0.19.8.1-1ubuntu2 [412 kB]
+dpkg-preconfigure: unable to re-open stdin: No such file or directory
+Fetched 412 kB in 0s (1,004 kB/s)
+Selecting previously unselected package autopoint.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 61564 files and directories currently installed.)
+Preparing to unpack .../autopoint_0.19.8.1-1ubuntu2_all.deb ...
+Unpacking autopoint (0.19.8.1-1ubuntu2) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+Setting up autopoint (0.19.8.1-1ubuntu2) ...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+automake is already the newest version (1:1.15-5ubuntu1).
+automake set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libcroco3
+Suggested packages:
+  gettext-doc libasprintf-dev libgettextpo-dev
+The following NEW packages will be installed:
+  gettext libcroco3
+0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1,173 kB of archives.
+After this operation, 4,581 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu zesty/main i386 libcroco3 i386 0.6.11-2 [87.1 kB]
+Get:2 http://archive.ubuntu.com/ubuntu zesty/main i386 gettext i386 0.19.8.1-1ubuntu2 [1,086 kB]
+dpkg-preconfigure: unable to re-open stdin: No such file or directory
+Fetched 1,173 kB in 1s (950 kB/s)
+Selecting previously unselected package libcroco3:i386.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 61571 files and directories currently installed.)
+Preparing to unpack .../libcroco3_0.6.11-2_i386.deb ...
+Unpacking libcroco3:i386 (0.6.11-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../gettext_0.19.8.1-1ubuntu2_i386.deb ...
+Unpacking gettext (0.19.8.1-1ubuntu2) ...
+Processing triggers for install-info (6.3.0.dfsg.1-1) ...
+Setting up libcroco3:i386 (0.6.11-2) ...
+Processing triggers for libc-bin (2.24-9ubuntu2.2) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+Setting up gettext (0.19.8.1-1ubuntu2) ...
+Processing triggers for libc-bin (2.24-9ubuntu2.2) ...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  help2man
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 155 kB of archives.
+After this operation, 465 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu zesty/universe i386 help2man i386 1.47.4 [155 kB]
+dpkg-preconfigure: unable to re-open stdin: No such file or directory
+Fetched 155 kB in 0s (763 kB/s)
+Selecting previously unselected package help2man.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 61784 files and directories currently installed.)
+Preparing to unpack .../help2man_1.47.4_i386.deb ...
+Unpacking help2man (1.47.4) ...
+Processing triggers for install-info (6.3.0.dfsg.1-1) ...
+Setting up help2man (1.47.4) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libauthen-sasl-perl libencode-locale-perl libfile-listing-perl
+  libfont-afm-perl libhtml-form-perl libhtml-format-perl libhtml-parser-perl
+  libhtml-tagset-perl libhtml-tree-perl libhttp-cookies-perl
+  libhttp-daemon-perl libhttp-date-perl libhttp-message-perl
+  libhttp-negotiate-perl libio-html-perl libio-socket-ssl-perl
+  liblwp-mediatypes-perl liblwp-protocol-https-perl libmailtools-perl
+  libnet-http-perl libnet-smtp-ssl-perl libnet-ssleay-perl
+  libtext-unidecode-perl libtimedate-perl liburi-perl libwww-perl
+  libwww-robotrules-perl libxml-libxml-perl libxml-namespacesupport-perl
+  libxml-parser-perl libxml-sax-base-perl libxml-sax-expat-perl
+  libxml-sax-perl perl-openssl-defaults tex-common
+Suggested packages:
+  libdigest-hmac-perl libgssapi-perl libdata-dump-perl libcrypt-ssleay-perl
+  libauthen-ntlm-perl debhelper texlive-base texlive-latex-base
+  texlive-generic-recommended texinfo-doc-nonfree texlive-fonts-recommended
+The following NEW packages will be installed:
+  libauthen-sasl-perl libencode-locale-perl libfile-listing-perl
+  libfont-afm-perl libhtml-form-perl libhtml-format-perl libhtml-parser-perl
+  libhtml-tagset-perl libhtml-tree-perl libhttp-cookies-perl
+  libhttp-daemon-perl libhttp-date-perl libhttp-message-perl
+  libhttp-negotiate-perl libio-html-perl libio-socket-ssl-perl
+  liblwp-mediatypes-perl liblwp-protocol-https-perl libmailtools-perl
+  libnet-http-perl libnet-smtp-ssl-perl libnet-ssleay-perl
+  libtext-unidecode-perl libtimedate-perl liburi-perl libwww-perl
+  libwww-robotrules-perl libxml-libxml-perl libxml-namespacesupport-perl
+  libxml-parser-perl libxml-sax-base-perl libxml-sax-expat-perl
+  libxml-sax-perl perl-openssl-defaults tex-common texinfo
+0 upgraded, 36 newly installed, 0 to remove and 0 not upgraded.
+Need to get 3,476 kB of archives.
+After this operation, 15.7 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu zesty/main i386 libencode-locale-perl all 1.05-1 [12.3 kB]
+Get:2 http://archive.ubuntu.com/ubuntu zesty/main i386 libtimedate-perl all 2.3000-2 [37.5 kB]
+Get:3 http://archive.ubuntu.com/ubuntu zesty/main i386 libhttp-date-perl all 6.02-1 [10.4 kB]
+Get:4 http://archive.ubuntu.com/ubuntu zesty/main i386 libfile-listing-perl all 6.04-1 [9,774 B]
+Get:5 http://archive.ubuntu.com/ubuntu zesty/main i386 libfont-afm-perl all 1.20-2 [13.2 kB]
+Get:6 http://archive.ubuntu.com/ubuntu zesty/main i386 libhtml-tagset-perl all 3.20-3 [12.1 kB]
+Get:7 http://archive.ubuntu.com/ubuntu zesty/main i386 liburi-perl all 1.71-1 [76.9 kB]
+Get:8 http://archive.ubuntu.com/ubuntu zesty/main i386 libhtml-parser-perl i386 3.72-3 [86.8 kB]
+Get:9 http://archive.ubuntu.com/ubuntu zesty/main i386 libio-html-perl all 1.001-1 [14.9 kB]
+Get:10 http://archive.ubuntu.com/ubuntu zesty/main i386 liblwp-mediatypes-perl all 6.02-1 [21.7 kB]
+Get:11 http://archive.ubuntu.com/ubuntu zesty/main i386 libhttp-message-perl all 6.11-1 [74.3 kB]
+Get:12 http://archive.ubuntu.com/ubuntu zesty/main i386 libhtml-form-perl all 6.03-1 [23.5 kB]
+Get:13 http://archive.ubuntu.com/ubuntu zesty/main i386 libhtml-tree-perl all 5.03-2 [197 kB]
+Get:14 http://archive.ubuntu.com/ubuntu zesty/main i386 libhtml-format-perl all 2.12-1 [41.3 kB]
+Get:15 http://archive.ubuntu.com/ubuntu zesty/main i386 libhttp-cookies-perl all 6.01-1 [17.2 kB]
+Get:16 http://archive.ubuntu.com/ubuntu zesty/main i386 libhttp-daemon-perl all 6.01-1 [17.0 kB]
+Get:17 http://archive.ubuntu.com/ubuntu zesty/main i386 libhttp-negotiate-perl all 6.00-2 [13.4 kB]
+Get:18 http://archive.ubuntu.com/ubuntu zesty/main i386 perl-openssl-defaults i386 3 [6,814 B]
+Get:19 http://archive.ubuntu.com/ubuntu zesty/main i386 libnet-ssleay-perl i386 1.80-1 [274 kB]
+Get:20 http://archive.ubuntu.com/ubuntu zesty/main i386 libio-socket-ssl-perl all 2.044-1 [163 kB]
+Get:21 http://archive.ubuntu.com/ubuntu zesty/main i386 libnet-http-perl all 6.12-1 [22.5 kB]
+Get:22 http://archive.ubuntu.com/ubuntu zesty/main i386 libwww-robotrules-perl all 6.01-1 [14.1 kB]
+Get:23 http://archive.ubuntu.com/ubuntu zesty/main i386 libwww-perl all 6.15-1 [146 kB]
+Get:24 http://archive.ubuntu.com/ubuntu zesty/main i386 liblwp-protocol-https-perl all 6.06-2 [8,682 B]
+Get:25 http://archive.ubuntu.com/ubuntu zesty/main i386 libnet-smtp-ssl-perl all 1.04-1 [5,948 B]
+Get:26 http://archive.ubuntu.com/ubuntu zesty/main i386 libmailtools-perl all 2.18-1 [74.0 kB]
+Get:27 http://archive.ubuntu.com/ubuntu zesty/universe i386 libtext-unidecode-perl all 1.30-1 [99.0 kB]
+Get:28 http://archive.ubuntu.com/ubuntu zesty/main i386 libxml-namespacesupport-perl all 1.11-1 [13.2 kB]
+Get:29 http://archive.ubuntu.com/ubuntu zesty/main i386 libxml-sax-base-perl all 1.07-1 [21.5 kB]
+Get:30 http://archive.ubuntu.com/ubuntu zesty/main i386 libxml-sax-perl all 0.99+dfsg-2ubuntu1 [64.6 kB]
+Get:31 http://archive.ubuntu.com/ubuntu zesty-updates/main i386 libxml-libxml-perl i386 2.0128+dfsg-1ubuntu0.1 [332 kB]
+Get:32 http://archive.ubuntu.com/ubuntu zesty/main i386 libxml-parser-perl i386 2.44-2build2 [202 kB]
+Get:33 http://archive.ubuntu.com/ubuntu zesty/main i386 libxml-sax-expat-perl all 0.40-2 [11.5 kB]
+Get:34 http://archive.ubuntu.com/ubuntu zesty/main i386 tex-common all 6.06 [545 kB]
+Get:35 http://archive.ubuntu.com/ubuntu zesty/universe i386 texinfo i386 6.3.0.dfsg.1-1 [744 kB]
+Get:36 http://archive.ubuntu.com/ubuntu zesty/main i386 libauthen-sasl-perl all 2.1600-1 [48.7 kB]
+dpkg-preconfigure: unable to re-open stdin: No such file or directory
+Fetched 3,476 kB in 4s (742 kB/s)
+Selecting previously unselected package libencode-locale-perl.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 61858 files and directories currently installed.)
+Preparing to unpack .../00-libencode-locale-perl_1.05-1_all.deb ...
+Unpacking libencode-locale-perl (1.05-1) ...
+Selecting previously unselected package libtimedate-perl.
+Preparing to unpack .../01-libtimedate-perl_2.3000-2_all.deb ...
+Unpacking libtimedate-perl (2.3000-2) ...
+Selecting previously unselected package libhttp-date-perl.
+Preparing to unpack .../02-libhttp-date-perl_6.02-1_all.deb ...
+Unpacking libhttp-date-perl (6.02-1) ...
+Selecting previously unselected package libfile-listing-perl.
+Preparing to unpack .../03-libfile-listing-perl_6.04-1_all.deb ...
+Unpacking libfile-listing-perl (6.04-1) ...
+Selecting previously unselected package libfont-afm-perl.
+Preparing to unpack .../04-libfont-afm-perl_1.20-2_all.deb ...
+Unpacking libfont-afm-perl (1.20-2) ...
+Selecting previously unselected package libhtml-tagset-perl.
+Preparing to unpack .../05-libhtml-tagset-perl_3.20-3_all.deb ...
+Unpacking libhtml-tagset-perl (3.20-3) ...
+Selecting previously unselected package liburi-perl.
+Preparing to unpack .../06-liburi-perl_1.71-1_all.deb ...
+Unpacking liburi-perl (1.71-1) ...
+Selecting previously unselected package libhtml-parser-perl.
+Preparing to unpack .../07-libhtml-parser-perl_3.72-3_i386.deb ...
+Unpacking libhtml-parser-perl (3.72-3) ...
+Selecting previously unselected package libio-html-perl.
+Preparing to unpack .../08-libio-html-perl_1.001-1_all.deb ...
+Unpacking libio-html-perl (1.001-1) ...
+Selecting previously unselected package liblwp-mediatypes-perl.
+Preparing to unpack .../09-liblwp-mediatypes-perl_6.02-1_all.deb ...
+Unpacking liblwp-mediatypes-perl (6.02-1) ...
+Selecting previously unselected package libhttp-message-perl.
+Preparing to unpack .../10-libhttp-message-perl_6.11-1_all.deb ...
+Unpacking libhttp-message-perl (6.11-1) ...
+Selecting previously unselected package libhtml-form-perl.
+Preparing to unpack .../11-libhtml-form-perl_6.03-1_all.deb ...
+Unpacking libhtml-form-perl (6.03-1) ...
+Selecting previously unselected package libhtml-tree-perl.
+Preparing to unpack .../12-libhtml-tree-perl_5.03-2_all.deb ...
+Unpacking libhtml-tree-perl (5.03-2) ...
+Selecting previously unselected package libhtml-format-perl.
+Preparing to unpack .../13-libhtml-format-perl_2.12-1_all.deb ...
+Unpacking libhtml-format-perl (2.12-1) ...
+Selecting previously unselected package libhttp-cookies-perl.
+Preparing to unpack .../14-libhttp-cookies-perl_6.01-1_all.deb ...
+Unpacking libhttp-cookies-perl (6.01-1) ...
+Selecting previously unselected package libhttp-daemon-perl.
+Preparing to unpack .../15-libhttp-daemon-perl_6.01-1_all.deb ...
+Unpacking libhttp-daemon-perl (6.01-1) ...
+Selecting previously unselected package libhttp-negotiate-perl.
+Preparing to unpack .../16-libhttp-negotiate-perl_6.00-2_all.deb ...
+Unpacking libhttp-negotiate-perl (6.00-2) ...
+Selecting previously unselected package perl-openssl-defaults:i386.
+Preparing to unpack .../17-perl-openssl-defaults_3_i386.deb ...
+Unpacking perl-openssl-defaults:i386 (3) ...
+Selecting previously unselected package libnet-ssleay-perl.
+Preparing to unpack .../18-libnet-ssleay-perl_1.80-1_i386.deb ...
+Unpacking libnet-ssleay-perl (1.80-1) ...
+Selecting previously unselected package libio-socket-ssl-perl.
+Preparing to unpack .../19-libio-socket-ssl-perl_2.044-1_all.deb ...
+Unpacking libio-socket-ssl-perl (2.044-1) ...
+Selecting previously unselected package libnet-http-perl.
+Preparing to unpack .../20-libnet-http-perl_6.12-1_all.deb ...
+Unpacking libnet-http-perl (6.12-1) ...
+Selecting previously unselected package libwww-robotrules-perl.
+Preparing to unpack .../21-libwww-robotrules-perl_6.01-1_all.deb ...
+Unpacking libwww-robotrules-perl (6.01-1) ...
+Selecting previously unselected package libwww-perl.
+Preparing to unpack .../22-libwww-perl_6.15-1_all.deb ...
+Unpacking libwww-perl (6.15-1) ...
+Selecting previously unselected package liblwp-protocol-https-perl.
+Preparing to unpack .../23-liblwp-protocol-https-perl_6.06-2_all.deb ...
+Unpacking liblwp-protocol-https-perl (6.06-2) ...
+Selecting previously unselected package libnet-smtp-ssl-perl.
+Preparing to unpack .../24-libnet-smtp-ssl-perl_1.04-1_all.deb ...
+Unpacking libnet-smtp-ssl-perl (1.04-1) ...
+Selecting previously unselected package libmailtools-perl.
+Preparing to unpack .../25-libmailtools-perl_2.18-1_all.deb ...
+Unpacking libmailtools-perl (2.18-1) ...
+Selecting previously unselected package libtext-unidecode-perl.
+Preparing to unpack .../26-libtext-unidecode-perl_1.30-1_all.deb ...
+Unpacking libtext-unidecode-perl (1.30-1) ...
+Selecting previously unselected package libxml-namespacesupport-perl.
+Preparing to unpack .../27-libxml-namespacesupport-perl_1.11-1_all.deb ...
+Unpacking libxml-namespacesupport-perl (1.11-1) ...
+Selecting previously unselected package libxml-sax-base-perl.
+Preparing to unpack .../28-libxml-sax-base-perl_1.07-1_all.deb ...
+Unpacking libxml-sax-base-perl (1.07-1) ...
+Selecting previously unselected package libxml-sax-perl.
+Preparing to unpack .../29-libxml-sax-perl_0.99+dfsg-2ubuntu1_all.deb ...
+Unpacking libxml-sax-perl (0.99+dfsg-2ubuntu1) ...
+Selecting previously unselected package libxml-libxml-perl.
+Preparing to unpack .../30-libxml-libxml-perl_2.0128+dfsg-1ubuntu0.1_i386.deb ...
+Unpacking libxml-libxml-perl (2.0128+dfsg-1ubuntu0.1) ...
+Selecting previously unselected package libxml-parser-perl.
+Preparing to unpack .../31-libxml-parser-perl_2.44-2build2_i386.deb ...
+Unpacking libxml-parser-perl (2.44-2build2) ...
+Selecting previously unselected package libxml-sax-expat-perl.
+Preparing to unpack .../32-libxml-sax-expat-perl_0.40-2_all.deb ...
+Unpacking libxml-sax-expat-perl (0.40-2) ...
+Selecting previously unselected package tex-common.
+Preparing to unpack .../33-tex-common_6.06_all.deb ...
+Unpacking tex-common (6.06) ...
+Selecting previously unselected package texinfo.
+Preparing to unpack .../34-texinfo_6.3.0.dfsg.1-1_i386.deb ...
+Unpacking texinfo (6.3.0.dfsg.1-1) ...
+Selecting previously unselected package libauthen-sasl-perl.
+Preparing to unpack .../35-libauthen-sasl-perl_2.1600-1_all.deb ...
+Unpacking libauthen-sasl-perl (2.1600-1) ...
+Setting up libhtml-tagset-perl (3.20-3) ...
+Setting up libfont-afm-perl (1.20-2) ...
+Setting up tex-common (6.06) ...
+update-language: texlive-base not installed and configured, doing nothing!
+Setting up libxml-namespacesupport-perl (1.11-1) ...
+Setting up libencode-locale-perl (1.05-1) ...
+Setting up libtimedate-perl (2.3000-2) ...
+Setting up perl-openssl-defaults:i386 (3) ...
+Setting up libio-html-perl (1.001-1) ...
+Setting up libtext-unidecode-perl (1.30-1) ...
+Setting up libxml-sax-base-perl (1.07-1) ...
+Setting up liblwp-mediatypes-perl (6.02-1) ...
+Setting up liburi-perl (1.71-1) ...
+Setting up libhtml-parser-perl (3.72-3) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+Setting up libnet-http-perl (6.12-1) ...
+Setting up libwww-robotrules-perl (6.01-1) ...
+Setting up libauthen-sasl-perl (2.1600-1) ...
+Setting up libxml-sax-perl (0.99+dfsg-2ubuntu1) ...
+update-perl-sax-parsers: Registering Perl SAX parser XML::SAX::PurePerl with priority 10...
+update-perl-sax-parsers: Updating overall Perl SAX parser modules info file...
+
+Creating config file /etc/perl/XML/SAX/ParserDetails.ini with new version
+Setting up libhttp-date-perl (6.02-1) ...
+Setting up libnet-ssleay-perl (1.80-1) ...
+Setting up libio-socket-ssl-perl (2.044-1) ...
+Setting up libhtml-tree-perl (5.03-2) ...
+Setting up libfile-listing-perl (6.04-1) ...
+Setting up libhttp-message-perl (6.11-1) ...
+Setting up libxml-libxml-perl (2.0128+dfsg-1ubuntu0.1) ...
+update-perl-sax-parsers: Registering Perl SAX parser XML::LibXML::SAX::Parser with priority 50...
+update-perl-sax-parsers: Registering Perl SAX parser XML::LibXML::SAX with priority 50...
+update-perl-sax-parsers: Updating overall Perl SAX parser modules info file...
+Replacing config file /etc/perl/XML/SAX/ParserDetails.ini with new version
+Setting up libhttp-negotiate-perl (6.00-2) ...
+Setting up libnet-smtp-ssl-perl (1.04-1) ...
+Setting up libhtml-format-perl (2.12-1) ...
+Setting up libhttp-cookies-perl (6.01-1) ...
+Setting up libhttp-daemon-perl (6.01-1) ...
+Setting up libhtml-form-perl (6.03-1) ...
+Setting up texinfo (6.3.0.dfsg.1-1) ...
+Setting up libmailtools-perl (2.18-1) ...
+Setting up liblwp-protocol-https-perl (6.06-2) ...
+Setting up libwww-perl (6.15-1) ...
+Setting up libxml-parser-perl (2.44-2build2) ...
+Setting up libxml-sax-expat-perl (0.40-2) ...
+update-perl-sax-parsers: Registering Perl SAX parser XML::SAX::Expat with priority 50...
+update-perl-sax-parsers: Updating overall Perl SAX parser modules info file...
+Replacing config file /etc/perl/XML/SAX/ParserDetails.ini with new version
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Suggested packages:
+  indent-doc
+The following NEW packages will be installed:
+  indent
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 75.7 kB of archives.
+After this operation, 180 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu zesty/main i386 indent i386 2.2.11-5 [75.7 kB]
+dpkg-preconfigure: unable to re-open stdin: No such file or directory
+Fetched 75.7 kB in 0s (519 kB/s)
+Selecting previously unselected package indent.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 63334 files and directories currently installed.)
+Preparing to unpack .../indent_2.2.11-5_i386.deb ...
+Unpacking indent (2.2.11-5) ...
+Processing triggers for install-info (6.3.0.dfsg.1-1) ...
+Setting up indent (2.2.11-5) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libltdl-dev libltdl7
+Suggested packages:
+  libtool-doc gfortran | fortran95-compiler gcj-jdk
+The following NEW packages will be installed:
+  libltdl-dev libltdl7 libtool
+0 upgraded, 3 newly installed, 0 to remove and 0 not upgraded.
+Need to get 397 kB of archives.
+After this operation, 2,615 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu zesty/main i386 libltdl7 i386 2.4.6-2 [40.5 kB]
+Get:2 http://archive.ubuntu.com/ubuntu zesty/main i386 libltdl-dev i386 2.4.6-2 [163 kB]
+Get:3 http://archive.ubuntu.com/ubuntu zesty/main i386 libtool all 2.4.6-2 [194 kB]
+dpkg-preconfigure: unable to re-open stdin: No such file or directory
+Fetched 397 kB in 0s (753 kB/s)
+Selecting previously unselected package libltdl7:i386.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 63342 files and directories currently installed.)
+Preparing to unpack .../libltdl7_2.4.6-2_i386.deb ...
+Unpacking libltdl7:i386 (2.4.6-2) ...
+Selecting previously unselected package libltdl-dev:i386.
+Preparing to unpack .../libltdl-dev_2.4.6-2_i386.deb ...
+Unpacking libltdl-dev:i386 (2.4.6-2) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../libtool_2.4.6-2_all.deb ...
+Unpacking libtool (2.4.6-2) ...
+Setting up libtool (2.4.6-2) ...
+Processing triggers for libc-bin (2.24-9ubuntu2.2) ...
+Setting up libltdl7:i386 (2.4.6-2) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+Setting up libltdl-dev:i386 (2.4.6-2) ...
+Processing triggers for libc-bin (2.24-9ubuntu2.2) ...
+[0;33mChanging Directory to Download GNU Flex
+[0;39m
+[0;33mDownloading flex-2.6.4.tar.gz...
+[0;39m
+--2017-12-04 10:52:08--  https://github.com/westes/flex/files/981163/flex-2.6.4.tar.gz
+Resolving github.com (github.com)... 192.30.253.113, 192.30.253.112
+Connecting to github.com (github.com)|192.30.253.113|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://github-production-repository-file-5c1aeb.s3.amazonaws.com/14521001/981163?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20171204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20171204T105211Z&X-Amz-Expires=300&X-Amz-Signature=9977d29ffa1e824d452c31cf95bea5e3d1a377fda955fd16e830f8f9c1133d29&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3Bfilename%3Dflex-2.6.4.tar.gz&response-content-type=application%2Fgzip [following]
+--2017-12-04 10:52:09--  https://github-production-repository-file-5c1aeb.s3.amazonaws.com/14521001/981163?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20171204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20171204T105211Z&X-Amz-Expires=300&X-Amz-Signature=9977d29ffa1e824d452c31cf95bea5e3d1a377fda955fd16e830f8f9c1133d29&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3Bfilename%3Dflex-2.6.4.tar.gz&response-content-type=application%2Fgzip
+Resolving github-production-repository-file-5c1aeb.s3.amazonaws.com (github-production-repository-file-5c1aeb.s3.amazonaws.com)... 52.216.21.115
+Connecting to github-production-repository-file-5c1aeb.s3.amazonaws.com (github-production-repository-file-5c1aeb.s3.amazonaws.com)|52.216.21.115|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1419096 (1.4M) [application/gzip]
+Saving to: ‘flex-2.6.4.tar.gz’
+
+     0K .......... .......... .......... .......... ..........  3%  210K 6s
+    50K .......... .......... .......... .......... ..........  7%  589K 4s
+   100K .......... .......... .......... .......... .......... 10%  387K 4s
+   150K .......... .......... .......... .......... .......... 14%  564K 3s
+   200K .......... .......... .......... .......... .......... 18%  565K 3s
+   250K .......... .......... .......... .......... .......... 21%  948K 2s
+   300K .......... .......... .......... .......... .......... 25%  265K 3s
+   350K .......... .......... .......... .......... .......... 28%  478K 2s
+   400K .......... .......... .......... .......... .......... 32%  528K 2s
+   450K .......... .......... .......... .......... .......... 36%  602K 2s
+   500K .......... .......... .......... .......... .......... 39%  789K 2s
+   550K .......... .......... .......... .......... .......... 43%  814K 2s
+   600K .......... .......... .......... .......... .......... 46%  993K 2s
+   650K .......... .......... .......... .......... .......... 50%  894K 1s
+   700K .......... .......... .......... .......... .......... 54%  978K 1s
+   750K .......... .......... .......... .......... .......... 57%  754K 1s
+   800K .......... .......... .......... .......... .......... 61% 1.00M 1s
+   850K .......... .......... .......... .......... .......... 64% 1023K 1s
+   900K .......... .......... .......... .......... .......... 68% 1.26M 1s
+   950K .......... .......... .......... .......... .......... 72% 1.09M 1s
+  1000K .......... .......... .......... .......... .......... 75% 1.03M 1s
+  1050K .......... .......... .......... .......... .......... 79% 1.10M 0s
+  1100K .......... .......... .......... .......... .......... 82% 1.10M 0s
+  1150K .......... .......... .......... .......... .......... 86% 1.05M 0s
+  1200K .......... .......... .......... .......... .......... 90% 1.09M 0s
+  1250K .......... .......... .......... .......... .......... 93% 1.12M 0s
+  1300K .......... .......... .......... .......... .......... 97% 1.26M 0s
+  1350K .......... .......... .......... .....                100%  981K=2.0s
+
+2017-12-04 10:52:11 (683 KB/s) - ‘flex-2.6.4.tar.gz’ saved [1419096/1419096]
+
+[0;33mExtracting flex-2.6.4.tar.gz...
+[0;39m
+[0;33mRunning autogen.sh...
+[0;39m
+libtoolize (GNU libtool) 2.4.6
+Written by Gary V. Vaughan <gary@gnu.org>, 2003
+
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'build-aux'.
+libtoolize: linking file 'build-aux/config.guess'
+libtoolize: linking file 'build-aux/config.sub'
+libtoolize: linking file 'build-aux/install-sh'
+libtoolize: linking file 'build-aux/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: linking file 'm4/libtool.m4'
+libtoolize: linking file 'm4/ltoptions.m4'
+libtoolize: linking file 'm4/ltsugar.m4'
+libtoolize: linking file 'm4/ltversion.m4'
+libtoolize: linking file 'm4/lt~obsolete.m4'
+Copying file m4/codeset.m4
+Copying file m4/fcntl-o.m4
+Copying file m4/glibc2.m4
+Copying file m4/glibc21.m4
+Copying file m4/intdiv0.m4
+Copying file m4/intl.m4
+Copying file m4/intldir.m4
+Copying file m4/intmax.m4
+Copying file m4/inttypes-pri.m4
+Copying file m4/inttypes_h.m4
+Copying file m4/lcmessage.m4
+Copying file m4/lock.m4
+Copying file m4/longlong.m4
+Copying file m4/printf-posix.m4
+Copying file m4/size_max.m4
+Copying file m4/stdint_h.m4
+Copying file m4/threadlib.m4
+Copying file m4/uintmax_t.m4
+Copying file m4/visibility.m4
+Copying file m4/wchar_t.m4
+Copying file m4/wint_t.m4
+Copying file m4/xsize.m4
+Copying file po/Makevars.template
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'build-aux'.
+libtoolize: copying file 'build-aux/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
+configure.ac:40: warning: The 'AM_PROG_MKDIR_P' macro is deprecated, and its use is discouraged.
+configure.ac:40: You should use the Autoconf-provided 'AC_PROG_MKDIR_P' macro instead,
+configure.ac:40: and use '$(MKDIR_P)' instead of '$(mkdir_p)'in your Makefile.am files.
+configure.ac:30: installing 'build-aux/compile'
+configure.ac:31: installing 'build-aux/missing'
+src/Makefile.am: installing 'build-aux/depcomp'
+[0;33mRunning configure...
+[0;39m
+checking build system type... i686-pc-linux-gnu
+checking host system type... i686-pc-linux-gnu
+checking how to print strings... printf
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert i686-pc-linux-gnu file names to i686-pc-linux-gnu format... func_convert_file_noop
+checking how to convert i686-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking for gawk... gawk
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking whether make sets $(MAKE)... yes
+checking for style of include used by make... GNU
+checking whether make supports nested variables... yes
+checking dependency style of gcc... gcc3
+checking whether NLS is requested... yes
+checking for msgfmt... /usr/bin/msgfmt
+checking for gmsgfmt... /usr/bin/msgfmt
+checking for xgettext... /usr/bin/xgettext
+checking for msgmerge... /usr/bin/msgmerge
+checking for ld used by GCC... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for shared library run path origin... done
+checking for CFPreferencesCopyAppValue... no
+checking for CFLocaleCopyCurrent... no
+checking for GNU gettext in libc... yes
+checking whether to use NLS... yes
+checking where the gettext function comes from... libc
+checking for bison... bison -y
+checking for flex... no
+checking for lex... no
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking whether gcc understands -c and -o together... (cached) yes
+checking for gcc... gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking whether gcc understands -c and -o together... (cached) yes
+checking how to run the C preprocessor... gcc -E
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking how to run the C++ preprocessor... g++ -E
+checking for ld used by g++... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking whether the g++ linker (/usr/bin/ld) supports shared libraries... yes
+checking for g++ option to produce PIC... -fPIC -DPIC
+checking if g++ PIC flag -fPIC -DPIC works... yes
+checking if g++ static flag -static works... yes
+checking if g++ supports -c -o file.o... yes
+checking if g++ supports -c -o file.o... (cached) yes
+checking whether the g++ linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking dependency style of g++... gcc3
+checking whether ln -s works... yes
+checking for gawk... (cached) gawk
+checking for help2man... /usr/bin/help2man
+checking for gtexi2dvi... no
+checking for texi2dvi... /usr/bin/texi2dvi
+checking for m4 that supports -P... /usr/bin/m4
+checking for indent... /usr/bin/indent
+checking if /usr/bin/indent is GNU indent... yes
+checking regex.h usability... yes
+checking regex.h presence... yes
+checking for regex.h... yes
+checking for strings.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking sys/wait.h usability... yes
+checking sys/wait.h presence... yes
+checking for sys/wait.h... yes
+checking for unistd.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking libintl.h usability... yes
+checking libintl.h presence... yes
+checking for libintl.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking for netinet/in.h... yes
+checking for pthread_mutex_lock in -lpthread... yes
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking for log10 in -lm... yes
+checking for stdbool.h that conforms to C99... yes
+checking for _Bool... yes
+checking for an ANSI C-conforming const... yes
+checking for size_t... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for pid_t... yes
+checking vfork.h usability... no
+checking vfork.h presence... no
+checking for vfork.h... no
+checking for fork... yes
+checking for vfork... yes
+checking for working fork... yes
+checking for working vfork... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible realloc... yes
+checking for dup2... yes
+checking for memset... yes
+checking for regcomp... yes
+checking for strcasecmp... yes
+checking for strchr... yes
+checking for strdup... yes
+checking for strtol... yes
+checking for pow... yes
+checking for setlocale... yes
+checking for reallocarray... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating doc/Makefile
+config.status: creating examples/Makefile
+config.status: creating examples/fastwc/Makefile
+config.status: creating examples/manual/Makefile
+config.status: creating po/Makefile.in
+config.status: creating src/Makefile
+config.status: creating tools/Makefile
+config.status: creating tests/Makefile
+config.status: creating src/config.h
+config.status: executing libtool commands
+config.status: executing depfiles commands
+config.status: executing po-directories commands
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
+[0;33mRunning make...
+[0;39m
+Making all in src
+make[1]: Entering directory '/home/flex-2.6.4/src'
+make  all-am
+make[2]: Entering directory '/home/flex-2.6.4/src'
+depbase=`echo libmain.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"   -g -O2 -MT libmain.lo -MD -MP -MF $depbase.Tpo -c -o libmain.lo libmain.c &&\
+mv -f $depbase.Tpo $depbase.Plo
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -DLOCALEDIR=\"/usr/local/share/locale\" -g -O2 -MT libmain.lo -MD -MP -MF .deps/libmain.Tpo -c libmain.c  -fPIC -DPIC -o .libs/libmain.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -DLOCALEDIR=\"/usr/local/share/locale\" -g -O2 -MT libmain.lo -MD -MP -MF .deps/libmain.Tpo -c libmain.c -o libmain.o >/dev/null 2>&1
+depbase=`echo libyywrap.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"   -g -O2 -MT libyywrap.lo -MD -MP -MF $depbase.Tpo -c -o libyywrap.lo libyywrap.c &&\
+mv -f $depbase.Tpo $depbase.Plo
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -DLOCALEDIR=\"/usr/local/share/locale\" -g -O2 -MT libyywrap.lo -MD -MP -MF .deps/libyywrap.Tpo -c libyywrap.c  -fPIC -DPIC -o .libs/libyywrap.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -DLOCALEDIR=\"/usr/local/share/locale\" -g -O2 -MT libyywrap.lo -MD -MP -MF .deps/libyywrap.Tpo -c libyywrap.c -o libyywrap.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -version-info 2:0:0  -o libfl.la -rpath /usr/local/lib libmain.lo libyywrap.lo  -lm 
+libtool: link: gcc -shared  -fPIC -DPIC  .libs/libmain.o .libs/libyywrap.o   -lm  -g -O2   -Wl,-soname -Wl,libfl.so.2 -o .libs/libfl.so.2.0.0
+libtool: link: (cd ".libs" && rm -f "libfl.so.2" && ln -s "libfl.so.2.0.0" "libfl.so.2")
+libtool: link: (cd ".libs" && rm -f "libfl.so" && ln -s "libfl.so.2.0.0" "libfl.so")
+libtool: link: ar cru .libs/libfl.a  libmain.o libyywrap.o
+ar: `u' modifier ignored since `D' is the default (see `U')
+libtool: link: ranlib .libs/libfl.a
+libtool: link: ( cd ".libs" && rm -f "libfl.la" && ln -s "../libfl.la" "libfl.la" )
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"    -g -O2 -MT flex-buf.o -MD -MP -MF .deps/flex-buf.Tpo -c -o flex-buf.o `test -f 'buf.c' || echo './'`buf.c
+mv -f .deps/flex-buf.Tpo .deps/flex-buf.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"    -g -O2 -MT flex-ccl.o -MD -MP -MF .deps/flex-ccl.Tpo -c -o flex-ccl.o `test -f 'ccl.c' || echo './'`ccl.c
+mv -f .deps/flex-ccl.Tpo .deps/flex-ccl.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"    -g -O2 -MT flex-dfa.o -MD -MP -MF .deps/flex-dfa.Tpo -c -o flex-dfa.o `test -f 'dfa.c' || echo './'`dfa.c
+mv -f .deps/flex-dfa.Tpo .deps/flex-dfa.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"    -g -O2 -MT flex-ecs.o -MD -MP -MF .deps/flex-ecs.Tpo -c -o flex-ecs.o `test -f 'ecs.c' || echo './'`ecs.c
+mv -f .deps/flex-ecs.Tpo .deps/flex-ecs.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"    -g -O2 -MT flex-filter.o -MD -MP -MF .deps/flex-filter.Tpo -c -o flex-filter.o `test -f 'filter.c' || echo './'`filter.c
+mv -f .deps/flex-filter.Tpo .deps/flex-filter.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"    -g -O2 -MT flex-gen.o -MD -MP -MF .deps/flex-gen.Tpo -c -o flex-gen.o `test -f 'gen.c' || echo './'`gen.c
+mv -f .deps/flex-gen.Tpo .deps/flex-gen.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"    -g -O2 -MT flex-main.o -MD -MP -MF .deps/flex-main.Tpo -c -o flex-main.o `test -f 'main.c' || echo './'`main.c
+mv -f .deps/flex-main.Tpo .deps/flex-main.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"    -g -O2 -MT flex-misc.o -MD -MP -MF .deps/flex-misc.Tpo -c -o flex-misc.o `test -f 'misc.c' || echo './'`misc.c
+mv -f .deps/flex-misc.Tpo .deps/flex-misc.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"    -g -O2 -MT flex-nfa.o -MD -MP -MF .deps/flex-nfa.Tpo -c -o flex-nfa.o `test -f 'nfa.c' || echo './'`nfa.c
+mv -f .deps/flex-nfa.Tpo .deps/flex-nfa.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"    -g -O2 -MT flex-options.o -MD -MP -MF .deps/flex-options.Tpo -c -o flex-options.o `test -f 'options.c' || echo './'`options.c
+mv -f .deps/flex-options.Tpo .deps/flex-options.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"    -g -O2 -MT flex-parse.o -MD -MP -MF .deps/flex-parse.Tpo -c -o flex-parse.o `test -f 'parse.c' || echo './'`parse.c
+mv -f .deps/flex-parse.Tpo .deps/flex-parse.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"    -g -O2 -MT flex-regex.o -MD -MP -MF .deps/flex-regex.Tpo -c -o flex-regex.o `test -f 'regex.c' || echo './'`regex.c
+mv -f .deps/flex-regex.Tpo .deps/flex-regex.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"    -g -O2 -MT flex-scanflags.o -MD -MP -MF .deps/flex-scanflags.Tpo -c -o flex-scanflags.o `test -f 'scanflags.c' || echo './'`scanflags.c
+mv -f .deps/flex-scanflags.Tpo .deps/flex-scanflags.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"    -g -O2 -MT flex-scanopt.o -MD -MP -MF .deps/flex-scanopt.Tpo -c -o flex-scanopt.o `test -f 'scanopt.c' || echo './'`scanopt.c
+mv -f .deps/flex-scanopt.Tpo .deps/flex-scanopt.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"    -g -O2 -MT flex-skel.o -MD -MP -MF .deps/flex-skel.Tpo -c -o flex-skel.o `test -f 'skel.c' || echo './'`skel.c
+mv -f .deps/flex-skel.Tpo .deps/flex-skel.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"    -g -O2 -MT flex-sym.o -MD -MP -MF .deps/flex-sym.Tpo -c -o flex-sym.o `test -f 'sym.c' || echo './'`sym.c
+mv -f .deps/flex-sym.Tpo .deps/flex-sym.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"    -g -O2 -MT flex-tables.o -MD -MP -MF .deps/flex-tables.Tpo -c -o flex-tables.o `test -f 'tables.c' || echo './'`tables.c
+mv -f .deps/flex-tables.Tpo .deps/flex-tables.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"    -g -O2 -MT flex-tables_shared.o -MD -MP -MF .deps/flex-tables_shared.Tpo -c -o flex-tables_shared.o `test -f 'tables_shared.c' || echo './'`tables_shared.c
+mv -f .deps/flex-tables_shared.Tpo .deps/flex-tables_shared.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"    -g -O2 -MT flex-tblcmp.o -MD -MP -MF .deps/flex-tblcmp.Tpo -c -o flex-tblcmp.o `test -f 'tblcmp.c' || echo './'`tblcmp.c
+mv -f .deps/flex-tblcmp.Tpo .deps/flex-tblcmp.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"    -g -O2 -MT flex-yylex.o -MD -MP -MF .deps/flex-yylex.Tpo -c -o flex-yylex.o `test -f 'yylex.c' || echo './'`yylex.c
+mv -f .deps/flex-yylex.Tpo .deps/flex-yylex.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"   -g -O2 -MT stage1flex-scan.o -MD -MP -MF .deps/stage1flex-scan.Tpo -c -o stage1flex-scan.o `test -f 'scan.c' || echo './'`scan.c
+mv -f .deps/stage1flex-scan.Tpo .deps/stage1flex-scan.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"   -g -O2 -MT stage1flex-buf.o -MD -MP -MF .deps/stage1flex-buf.Tpo -c -o stage1flex-buf.o `test -f 'buf.c' || echo './'`buf.c
+mv -f .deps/stage1flex-buf.Tpo .deps/stage1flex-buf.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"   -g -O2 -MT stage1flex-ccl.o -MD -MP -MF .deps/stage1flex-ccl.Tpo -c -o stage1flex-ccl.o `test -f 'ccl.c' || echo './'`ccl.c
+mv -f .deps/stage1flex-ccl.Tpo .deps/stage1flex-ccl.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"   -g -O2 -MT stage1flex-dfa.o -MD -MP -MF .deps/stage1flex-dfa.Tpo -c -o stage1flex-dfa.o `test -f 'dfa.c' || echo './'`dfa.c
+mv -f .deps/stage1flex-dfa.Tpo .deps/stage1flex-dfa.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"   -g -O2 -MT stage1flex-ecs.o -MD -MP -MF .deps/stage1flex-ecs.Tpo -c -o stage1flex-ecs.o `test -f 'ecs.c' || echo './'`ecs.c
+mv -f .deps/stage1flex-ecs.Tpo .deps/stage1flex-ecs.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"   -g -O2 -MT stage1flex-filter.o -MD -MP -MF .deps/stage1flex-filter.Tpo -c -o stage1flex-filter.o `test -f 'filter.c' || echo './'`filter.c
+mv -f .deps/stage1flex-filter.Tpo .deps/stage1flex-filter.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"   -g -O2 -MT stage1flex-gen.o -MD -MP -MF .deps/stage1flex-gen.Tpo -c -o stage1flex-gen.o `test -f 'gen.c' || echo './'`gen.c
+mv -f .deps/stage1flex-gen.Tpo .deps/stage1flex-gen.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"   -g -O2 -MT stage1flex-main.o -MD -MP -MF .deps/stage1flex-main.Tpo -c -o stage1flex-main.o `test -f 'main.c' || echo './'`main.c
+mv -f .deps/stage1flex-main.Tpo .deps/stage1flex-main.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"   -g -O2 -MT stage1flex-misc.o -MD -MP -MF .deps/stage1flex-misc.Tpo -c -o stage1flex-misc.o `test -f 'misc.c' || echo './'`misc.c
+mv -f .deps/stage1flex-misc.Tpo .deps/stage1flex-misc.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"   -g -O2 -MT stage1flex-nfa.o -MD -MP -MF .deps/stage1flex-nfa.Tpo -c -o stage1flex-nfa.o `test -f 'nfa.c' || echo './'`nfa.c
+mv -f .deps/stage1flex-nfa.Tpo .deps/stage1flex-nfa.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"   -g -O2 -MT stage1flex-options.o -MD -MP -MF .deps/stage1flex-options.Tpo -c -o stage1flex-options.o `test -f 'options.c' || echo './'`options.c
+mv -f .deps/stage1flex-options.Tpo .deps/stage1flex-options.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"   -g -O2 -MT stage1flex-parse.o -MD -MP -MF .deps/stage1flex-parse.Tpo -c -o stage1flex-parse.o `test -f 'parse.c' || echo './'`parse.c
+mv -f .deps/stage1flex-parse.Tpo .deps/stage1flex-parse.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"   -g -O2 -MT stage1flex-regex.o -MD -MP -MF .deps/stage1flex-regex.Tpo -c -o stage1flex-regex.o `test -f 'regex.c' || echo './'`regex.c
+mv -f .deps/stage1flex-regex.Tpo .deps/stage1flex-regex.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"   -g -O2 -MT stage1flex-scanflags.o -MD -MP -MF .deps/stage1flex-scanflags.Tpo -c -o stage1flex-scanflags.o `test -f 'scanflags.c' || echo './'`scanflags.c
+mv -f .deps/stage1flex-scanflags.Tpo .deps/stage1flex-scanflags.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"   -g -O2 -MT stage1flex-scanopt.o -MD -MP -MF .deps/stage1flex-scanopt.Tpo -c -o stage1flex-scanopt.o `test -f 'scanopt.c' || echo './'`scanopt.c
+mv -f .deps/stage1flex-scanopt.Tpo .deps/stage1flex-scanopt.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"   -g -O2 -MT stage1flex-skel.o -MD -MP -MF .deps/stage1flex-skel.Tpo -c -o stage1flex-skel.o `test -f 'skel.c' || echo './'`skel.c
+mv -f .deps/stage1flex-skel.Tpo .deps/stage1flex-skel.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"   -g -O2 -MT stage1flex-sym.o -MD -MP -MF .deps/stage1flex-sym.Tpo -c -o stage1flex-sym.o `test -f 'sym.c' || echo './'`sym.c
+mv -f .deps/stage1flex-sym.Tpo .deps/stage1flex-sym.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"   -g -O2 -MT stage1flex-tables.o -MD -MP -MF .deps/stage1flex-tables.Tpo -c -o stage1flex-tables.o `test -f 'tables.c' || echo './'`tables.c
+mv -f .deps/stage1flex-tables.Tpo .deps/stage1flex-tables.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"   -g -O2 -MT stage1flex-tables_shared.o -MD -MP -MF .deps/stage1flex-tables_shared.Tpo -c -o stage1flex-tables_shared.o `test -f 'tables_shared.c' || echo './'`tables_shared.c
+mv -f .deps/stage1flex-tables_shared.Tpo .deps/stage1flex-tables_shared.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"   -g -O2 -MT stage1flex-tblcmp.o -MD -MP -MF .deps/stage1flex-tblcmp.Tpo -c -o stage1flex-tblcmp.o `test -f 'tblcmp.c' || echo './'`tblcmp.c
+mv -f .deps/stage1flex-tblcmp.Tpo .deps/stage1flex-tblcmp.Po
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"   -g -O2 -MT stage1flex-yylex.o -MD -MP -MF .deps/stage1flex-yylex.Tpo -c -o stage1flex-yylex.o `test -f 'yylex.c' || echo './'`yylex.c
+mv -f .deps/stage1flex-yylex.Tpo .deps/stage1flex-yylex.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2   -o stage1flex stage1flex-scan.o stage1flex-buf.o stage1flex-ccl.o stage1flex-dfa.o stage1flex-ecs.o stage1flex-filter.o stage1flex-gen.o stage1flex-main.o stage1flex-misc.o stage1flex-nfa.o stage1flex-options.o stage1flex-parse.o stage1flex-regex.o stage1flex-scanflags.o stage1flex-scanopt.o stage1flex-skel.o stage1flex-sym.o stage1flex-tables.o stage1flex-tables_shared.o stage1flex-tblcmp.o stage1flex-yylex.o    -lm 
+libtool: link: gcc -g -O2 -o stage1flex stage1flex-scan.o stage1flex-buf.o stage1flex-ccl.o stage1flex-dfa.o stage1flex-ecs.o stage1flex-filter.o stage1flex-gen.o stage1flex-main.o stage1flex-misc.o stage1flex-nfa.o stage1flex-options.o stage1flex-parse.o stage1flex-regex.o stage1flex-scanflags.o stage1flex-scanopt.o stage1flex-skel.o stage1flex-sym.o stage1flex-tables.o stage1flex-tables_shared.o stage1flex-tblcmp.o stage1flex-yylex.o  -lm
+./stage1flex   -o stage1scan.c ./scan.l
+gcc -DHAVE_CONFIG_H -I.  -DLOCALEDIR=\"/usr/local/share/locale\"    -g -O2 -MT flex-stage1scan.o -MD -MP -MF .deps/flex-stage1scan.Tpo -c -o flex-stage1scan.o `test -f 'stage1scan.c' || echo './'`stage1scan.c
+mv -f .deps/flex-stage1scan.Tpo .deps/flex-stage1scan.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc   -g -O2   -o flex flex-buf.o flex-ccl.o flex-dfa.o flex-ecs.o flex-filter.o flex-gen.o flex-main.o flex-misc.o flex-nfa.o flex-options.o flex-parse.o flex-regex.o flex-scanflags.o flex-scanopt.o flex-skel.o flex-sym.o flex-tables.o flex-tables_shared.o flex-tblcmp.o flex-yylex.o flex-stage1scan.o   -lm 
+libtool: link: gcc -g -O2 -o flex flex-buf.o flex-ccl.o flex-dfa.o flex-ecs.o flex-filter.o flex-gen.o flex-main.o flex-misc.o flex-nfa.o flex-options.o flex-parse.o flex-regex.o flex-scanflags.o flex-scanopt.o flex-skel.o flex-sym.o flex-tables.o flex-tables_shared.o flex-tblcmp.o flex-yylex.o flex-stage1scan.o  -lm
+make[2]: Leaving directory '/home/flex-2.6.4/src'
+make[1]: Leaving directory '/home/flex-2.6.4/src'
+Making all in doc
+make[1]: Entering directory '/home/flex-2.6.4/doc'
+make[1]: Leaving directory '/home/flex-2.6.4/doc'
+Making all in examples
+make[1]: Entering directory '/home/flex-2.6.4/examples'
+Making all in manual
+make[2]: Entering directory '/home/flex-2.6.4/examples/manual'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/flex-2.6.4/examples/manual'
+Making all in fastwc
+make[2]: Entering directory '/home/flex-2.6.4/examples/fastwc'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/flex-2.6.4/examples/fastwc'
+make[2]: Entering directory '/home/flex-2.6.4/examples'
+make[2]: Nothing to be done for 'all-am'.
+make[2]: Leaving directory '/home/flex-2.6.4/examples'
+make[1]: Leaving directory '/home/flex-2.6.4/examples'
+Making all in po
+make[1]: Entering directory '/home/flex-2.6.4/po'
+make[1]: Leaving directory '/home/flex-2.6.4/po'
+Making all in tests
+make[1]: Entering directory '/home/flex-2.6.4/tests'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/flex-2.6.4/tests'
+Making all in tools
+make[1]: Entering directory '/home/flex-2.6.4/tools'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/flex-2.6.4/tools'
+make[1]: Entering directory '/home/flex-2.6.4'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/home/flex-2.6.4'
+[0;33mRunning make install...
+[0;39m
+Making install in src
+make[1]: Entering directory '/home/flex-2.6.4/src'
+make[2]: Entering directory '/home/flex-2.6.4/src'
+ /bin/mkdir -p '/usr/local/lib'
+ /bin/bash ../libtool   --mode=install /usr/bin/install -c   libfl.la '/usr/local/lib'
+libtool: install: /usr/bin/install -c .libs/libfl.so.2.0.0 /usr/local/lib/libfl.so.2.0.0
+libtool: install: (cd /usr/local/lib && { ln -s -f libfl.so.2.0.0 libfl.so.2 || { rm -f libfl.so.2 && ln -s libfl.so.2.0.0 libfl.so.2; }; })
+libtool: install: (cd /usr/local/lib && { ln -s -f libfl.so.2.0.0 libfl.so || { rm -f libfl.so && ln -s libfl.so.2.0.0 libfl.so; }; })
+libtool: install: /usr/bin/install -c .libs/libfl.lai /usr/local/lib/libfl.la
+libtool: install: /usr/bin/install -c .libs/libfl.a /usr/local/lib/libfl.a
+libtool: install: chmod 644 /usr/local/lib/libfl.a
+libtool: install: ranlib /usr/local/lib/libfl.a
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/sbin" ldconfig -n /usr/local/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/local/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+ /bin/mkdir -p '/usr/local/bin'
+  /bin/bash ../libtool   --mode=install /usr/bin/install -c flex '/usr/local/bin'
+libtool: install: /usr/bin/install -c flex /usr/local/bin/flex
+ /bin/mkdir -p '/usr/local/include'
+ /usr/bin/install -c -m 644 FlexLexer.h '/usr/local/include'
+make[2]: Leaving directory '/home/flex-2.6.4/src'
+make[1]: Leaving directory '/home/flex-2.6.4/src'
+Making install in doc
+make[1]: Entering directory '/home/flex-2.6.4/doc'
+make[2]: Entering directory '/home/flex-2.6.4/doc'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/usr/local/share/info'
+ /usr/bin/install -c -m 644 ./flex.info ./flex.info-1 ./flex.info-2 '/usr/local/share/info'
+ install-info --info-dir='/usr/local/share/info' '/usr/local/share/info/flex.info'
+ /bin/mkdir -p '/usr/local/share/man/man1'
+ /usr/bin/install -c -m 644 flex.1 '/usr/local/share/man/man1'
+make[2]: Leaving directory '/home/flex-2.6.4/doc'
+make[1]: Leaving directory '/home/flex-2.6.4/doc'
+Making install in examples
+make[1]: Entering directory '/home/flex-2.6.4/examples'
+Making install in manual
+make[2]: Entering directory '/home/flex-2.6.4/examples/manual'
+make[3]: Entering directory '/home/flex-2.6.4/examples/manual'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/home/flex-2.6.4/examples/manual'
+make[2]: Leaving directory '/home/flex-2.6.4/examples/manual'
+Making install in fastwc
+make[2]: Entering directory '/home/flex-2.6.4/examples/fastwc'
+make[3]: Entering directory '/home/flex-2.6.4/examples/fastwc'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/home/flex-2.6.4/examples/fastwc'
+make[2]: Leaving directory '/home/flex-2.6.4/examples/fastwc'
+make[2]: Entering directory '/home/flex-2.6.4/examples'
+make[3]: Entering directory '/home/flex-2.6.4/examples'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/home/flex-2.6.4/examples'
+make[2]: Leaving directory '/home/flex-2.6.4/examples'
+make[1]: Leaving directory '/home/flex-2.6.4/examples'
+Making install in po
+make[1]: Entering directory '/home/flex-2.6.4/po'
+installing ca.gmo as /usr/local/share/locale/ca/LC_MESSAGES/flex.mo
+installing da.gmo as /usr/local/share/locale/da/LC_MESSAGES/flex.mo
+installing de.gmo as /usr/local/share/locale/de/LC_MESSAGES/flex.mo
+installing en@quot.gmo as /usr/local/share/locale/en@quot/LC_MESSAGES/flex.mo
+installing en@boldquot.gmo as /usr/local/share/locale/en@boldquot/LC_MESSAGES/flex.mo
+installing eo.gmo as /usr/local/share/locale/eo/LC_MESSAGES/flex.mo
+installing es.gmo as /usr/local/share/locale/es/LC_MESSAGES/flex.mo
+installing fi.gmo as /usr/local/share/locale/fi/LC_MESSAGES/flex.mo
+installing fr.gmo as /usr/local/share/locale/fr/LC_MESSAGES/flex.mo
+installing ga.gmo as /usr/local/share/locale/ga/LC_MESSAGES/flex.mo
+installing hr.gmo as /usr/local/share/locale/hr/LC_MESSAGES/flex.mo
+installing ko.gmo as /usr/local/share/locale/ko/LC_MESSAGES/flex.mo
+installing nl.gmo as /usr/local/share/locale/nl/LC_MESSAGES/flex.mo
+installing pl.gmo as /usr/local/share/locale/pl/LC_MESSAGES/flex.mo
+installing pt_BR.gmo as /usr/local/share/locale/pt_BR/LC_MESSAGES/flex.mo
+installing ro.gmo as /usr/local/share/locale/ro/LC_MESSAGES/flex.mo
+installing ru.gmo as /usr/local/share/locale/ru/LC_MESSAGES/flex.mo
+installing sr.gmo as /usr/local/share/locale/sr/LC_MESSAGES/flex.mo
+installing sv.gmo as /usr/local/share/locale/sv/LC_MESSAGES/flex.mo
+installing tr.gmo as /usr/local/share/locale/tr/LC_MESSAGES/flex.mo
+installing vi.gmo as /usr/local/share/locale/vi/LC_MESSAGES/flex.mo
+installing zh_CN.gmo as /usr/local/share/locale/zh_CN/LC_MESSAGES/flex.mo
+installing zh_TW.gmo as /usr/local/share/locale/zh_TW/LC_MESSAGES/flex.mo
+if test "flex" = "gettext-tools"; then \
+  /bin/mkdir -p /usr/local/share/gettext/po; \
+  for file in Makefile.in.in remove-potcdate.sin quot.sed boldquot.sed en@quot.header en@boldquot.header insert-header.sin Rules-quot   Makevars.template; do \
+    /usr/bin/install -c -m 644 ./$file \
+		    /usr/local/share/gettext/po/$file; \
+  done; \
+  for file in Makevars; do \
+    rm -f /usr/local/share/gettext/po/$file; \
+  done; \
+else \
+  : ; \
+fi
+make[1]: Leaving directory '/home/flex-2.6.4/po'
+Making install in tests
+make[1]: Entering directory '/home/flex-2.6.4/tests'
+make[2]: Entering directory '/home/flex-2.6.4/tests'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/home/flex-2.6.4/tests'
+make[1]: Leaving directory '/home/flex-2.6.4/tests'
+Making install in tools
+make[1]: Entering directory '/home/flex-2.6.4/tools'
+make[2]: Entering directory '/home/flex-2.6.4/tools'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/home/flex-2.6.4/tools'
+make[1]: Leaving directory '/home/flex-2.6.4/tools'
+make[1]: Entering directory '/home/flex-2.6.4'
+make[2]: Entering directory '/home/flex-2.6.4'
+make  install-exec-hook
+make[3]: Entering directory '/home/flex-2.6.4'
+cd /usr/local/bin && \
+	ln -s -f flex flex++
+make[3]: Leaving directory '/home/flex-2.6.4'
+ /bin/mkdir -p '/usr/local/share/doc/flex'
+ /usr/bin/install -c -m 644 AUTHORS COPYING NEWS ONEWS README.md '/usr/local/share/doc/flex'
+make[2]: Leaving directory '/home/flex-2.6.4'
+make[1]: Leaving directory '/home/flex-2.6.4'
+[0;32mAll Done! Read the log file in the shared folder if you encounter the problems.
+Also please run a sanity check using "which" on flex, bison and gcc.[0;39m
+-e Vagrant Provision Log:
+-e \E[0;32mStarting provision...
+-e \E[0;33mSetting Locale
+sed: couldn't open temporary file /etc/sedIpnzv0: Permission denied
+/usr/sbin/dpkg-reconfigure must be run as root
+-e \E[0;33mUpdating packages...
+-e \E[0;39m
+Hit:1 http://archive.ubuntu.com/ubuntu zesty InRelease
+Get:2 http://archive.ubuntu.com/ubuntu zesty-updates InRelease [89.2 kB]
+Get:3 http://archive.ubuntu.com/ubuntu zesty-backports InRelease [89.2 kB]
+Get:4 http://security.ubuntu.com/ubuntu zesty-security InRelease [89.2 kB]
+Fetched 268 kB in 0s (371 kB/s)
+Reading package lists...
+-e \E[0;33mUpgrading packages...
+-e \E[0;39m
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+-e \E[0;33mInstalling build-essential
+-e \E[0;39m
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  dpkg-dev fakeroot libalgorithm-diff-perl libalgorithm-diff-xs-perl
+  libalgorithm-merge-perl libdpkg-perl libfakeroot libfile-fcntllock-perl
+Suggested packages:
+  debian-keyring
+The following NEW packages will be installed:
+  build-essential dpkg-dev fakeroot libalgorithm-diff-perl
+  libalgorithm-diff-xs-perl libalgorithm-merge-perl libdpkg-perl libfakeroot
+  libfile-fcntllock-perl
+0 upgraded, 9 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1,052 kB of archives.
+After this operation, 4,529 kB of additional disk space will be used.
+Do you want to continue? [Y/n] 

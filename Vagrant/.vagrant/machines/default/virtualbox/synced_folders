@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/Shared_Folder":{"create":true,"guestpath":"/home/Shared_Folder","hostpath":"C:/Users/saturn/Desktop/Vagrant/Vagrant_Shared_Folder","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/saturn/Desktop/Vagrant","disabled":false,"__vagrantfile":true}}}
