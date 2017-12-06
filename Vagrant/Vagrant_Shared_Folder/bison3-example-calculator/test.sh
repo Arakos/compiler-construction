@@ -26,50 +26,35 @@
 #   set -x
 #}
 
-echo && echo -e "\nTEST: Running a four line cac++ program..."
-cat > input <<EOF
-package main;
+echo && echo "tests/test1.go"
+cat tests/test1.go | ./calc++ -
 
-import "test";
-import "hallo";
-import "jaGG";
+echo && echo "tests/test2.go"
+cat tests/test2.go | ./calc++ -
 
-func myFunc () { 
-	var hallo = 1 + 1;
-	hallo = 42;
-	
-	var davis = 1;
-	
-	var definition;
-	
-	var marcell = "hallo";
-	
-}
-EOF
+echo && echo "tests/test3.go"
+cat tests/test3.go | ./calc++ -
 
-./calc++ input
+echo && echo "tests/test4.go"
+cat tests/test4.go | ./calc++ -
 
-echo && echo -e "\nTEST: Running the same four line cac++ program with input from a pipe (stdin)..."
-cat input | ./calc++ -
+echo && echo "tests/test5.go"
+cat tests/test5.go | ./calc++ -
 
-echo && echo -e "\nTEST: Running the same four line cac++ program with parse tracing turned on..."
-./calc++ -p -s input
+echo && echo "tests/fail1.go"
+cat tests/fail1.go | ./calc++ -
 
-cat > input <<EOF
-package main;
+echo && echo "tests/fail2.go"
+cat tests/fail2.go | ./calc++ -
 
-import "file1";
-import "file2";
+echo && echo "tests/fail3.go"
+cat tests/fail3.go | ./calc++ -
 
-func main() {
-	var x = (1 + 2) * (3 + 4 * (5 + 6));
-	var y = 1 + 2 * 3 + 4 * 5;
-	var z = 1 + 2 + 3 + 4 + 5 ;
-}
-EOF
+echo && echo "tests/fail4.go"
+cat tests/fail4.go | ./calc++ -
 
-./calc++ -p -s input
+echo && echo "tests/fail5.go"
+cat tests/fail5.go | ./calc++ -
 
-rm input
 
 #make tests > test.txt 2>&1

@@ -1,1202 +1,216 @@
-bison -v -d -o calc++-parser.cc calc++-parser.yy
 g++  -o calc++.o -c calc++.cc
-flex  -o calc++-scanner.cc calc++-scanner.ll
 g++  -o calc++-scanner.o -c calc++-scanner.cc
 g++  -o calc++-parser.o -c calc++-parser.cc
+g++  -o calc++-driver.o -c calc++-driver.cc
 g++   calc++.o calc++-scanner.o calc++-parser.o calc++-driver.o   -o calc++
 ./test.sh
 
--e 
-TEST: Running a four line cac++ program...
+tests/test1.go
 Hallo, !0 is true, und ich bin Marcell D'Avis, 1 & 1
-Parsing successful!
+Starting D'Avis parse ...
+Das Programm läuft!
+
+x: Container: mathExp
+y: Container: mathExp
+z: Container: mathExp
+Tree:
+Container: root
+	-> Container: package
+		-> Id: main
+	-> Container: imports
+		-> Id: file1
+		-> Id: file2
+	-> Container: functions
+		-> function: func
+			-> Id: main
+			-> assigment: =
+				-> Id: x
+				-> Container: mathExp
+					-> Expression: *
+						-> Expression: +
+							-> Number: 1
+							-> Number: 2
+						-> Expression: +
+							-> Number: 3
+							-> Expression: *
+								-> Number: 4
+								-> Expression: +
+									-> Number: 5
+									-> Number: 6
+			-> assigment: =
+				-> Id: y
+				-> Container: mathExp
+					-> Expression: +
+						-> Expression: +
+							-> Number: 1
+							-> Expression: *
+								-> Number: 2
+								-> Number: 3
+						-> Expression: *
+							-> Number: 4
+							-> Number: 5
+			-> assigment: =
+				-> Id: z
+				-> Container: mathExp
+					-> Expression: +
+						-> Expression: +
+							-> Expression: +
+								-> Expression: +
+									-> Number: 1
+									-> Number: 2
+								-> Number: 3
+							-> Number: 4
+						-> Number: 5
 
 
-davis: 1
-definition: unassigned
-hallo: 42
-marcell: hallo
-
--e 
-TEST: Running the same four line cac++ program with input from a pipe (stdin)...
+tests/test2.go
 Hallo, !0 is true, und ich bin Marcell D'Avis, 1 & 1
-Parsing successful!
+Starting D'Avis parse ...
+Das Programm läuft!
+
+testVar: Container: mathExp
+testVar2: Container: mathExp
+Tree:
+Container: root
+	-> Container: package
+		-> Id: main
+	-> Container: imports
+	-> Container: functions
+		-> function: func
+			-> Id: test
+			-> assigment: =
+				-> Id: testVar
+				-> Container: mathExp
+					-> Expression: *
+						-> Expression: +
+							-> Number: 2000
+							-> Number: 9
+						-> Expression: +
+							-> Number: 100
+							-> Expression: +
+								-> Expression: *
+									-> Number: 20
+									-> Number: 4
+								-> Number: 1
+		-> function: func
+			-> Id: test2
+			-> assigment: =
+				-> Id: testVar2
+				-> Container: mathExp
+					-> Number: 2
 
 
-davis: 1
-definition: unassigned
-hallo: 42
-marcell: hallo
-
--e 
-TEST: Running the same four line cac++ program with parse tracing turned on...
+tests/test3.go
 Hallo, !0 is true, und ich bin Marcell D'Avis, 1 & 1
-Starting parse
-Entering state 0
-Reading a token: --(end of buffer or a NUL)
---accepting rule at line 62 ("package")
-Next token is token "package" (1.1-7: )
-Shifting token "package" (1.1-7: )
-Entering state 1
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 91 ("main")
-Next token is token "identifier" (1.9-12: main)
-Shifting token "identifier" (1.9-12: main)
-Entering state 3
-Reading a token: --accepting rule at line 76 (";")
-Next token is token ";" (1.13: )
-Shifting token ";" (1.13: )
-Entering state 5
-Reading a token: --accepting rule at line 59 ("
+Starting D'Avis parse ...
+Das Programm läuft!
 
-")
---accepting rule at line 63 ("import")
-Next token is token "import" (3.1-6: )
-Shifting token "import" (3.1-6: )
-Entering state 6
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 77 (""")
-Next token is token "\"" (3.8: )
-Shifting token "\"" (3.8: )
-Entering state 12
-Reading a token: --accepting rule at line 91 ("test")
-Next token is token "identifier" (3.9-12: test)
-Shifting token "identifier" (3.9-12: test)
-Entering state 16
-Reading a token: --accepting rule at line 77 (""")
-Next token is token "\"" (3.13: )
-Shifting token "\"" (3.13: )
-Entering state 18
-Reading a token: --accepting rule at line 76 (";")
-Next token is token ";" (3.14: )
-Shifting token ";" (3.14: )
-Entering state 20
-Reducing stack by rule 4 (line 88):
-   $1 = token "import" (3.1-6: )
-   $2 = token "\"" (3.8: )
-   $3 = token "identifier" (3.9-12: test)
-   $4 = token "\"" (3.13: )
-   $5 = token ";" (3.14: )
--> $$ = nterm import (3.1-14: )
-Stack now 5 3 1 0
-Entering state 9
-Reading a token: --accepting rule at line 59 ("
-")
---accepting rule at line 63 ("import")
-Next token is token "import" (4.1-6: )
-Shifting token "import" (4.1-6: )
-Entering state 6
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 77 (""")
-Next token is token "\"" (4.8: )
-Shifting token "\"" (4.8: )
-Entering state 12
-Reading a token: --accepting rule at line 91 ("hallo")
-Next token is token "identifier" (4.9-13: hallo)
-Shifting token "identifier" (4.9-13: hallo)
-Entering state 16
-Reading a token: --accepting rule at line 77 (""")
-Next token is token "\"" (4.14: )
-Shifting token "\"" (4.14: )
-Entering state 18
-Reading a token: --accepting rule at line 76 (";")
-Next token is token ";" (4.15: )
-Shifting token ";" (4.15: )
-Entering state 20
-Reducing stack by rule 4 (line 88):
-   $1 = token "import" (4.1-6: )
-   $2 = token "\"" (4.8: )
-   $3 = token "identifier" (4.9-13: hallo)
-   $4 = token "\"" (4.14: )
-   $5 = token ";" (4.15: )
--> $$ = nterm import (4.1-15: )
-Stack now 9 5 3 1 0
-Entering state 9
-Reading a token: --accepting rule at line 59 ("
-")
---accepting rule at line 63 ("import")
-Next token is token "import" (5.1-6: )
-Shifting token "import" (5.1-6: )
-Entering state 6
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 77 (""")
-Next token is token "\"" (5.8: )
-Shifting token "\"" (5.8: )
-Entering state 12
-Reading a token: --accepting rule at line 91 ("jaGG")
-Next token is token "identifier" (5.9-12: jaGG)
-Shifting token "identifier" (5.9-12: jaGG)
-Entering state 16
-Reading a token: --accepting rule at line 77 (""")
-Next token is token "\"" (5.13: )
-Shifting token "\"" (5.13: )
-Entering state 18
-Reading a token: --accepting rule at line 76 (";")
-Next token is token ";" (5.14: )
-Shifting token ";" (5.14: )
-Entering state 20
-Reducing stack by rule 4 (line 88):
-   $1 = token "import" (5.1-6: )
-   $2 = token "\"" (5.8: )
-   $3 = token "identifier" (5.9-12: jaGG)
-   $4 = token "\"" (5.13: )
-   $5 = token ";" (5.14: )
--> $$ = nterm import (5.1-14: )
-Stack now 9 9 5 3 1 0
-Entering state 9
-Reading a token: --accepting rule at line 59 ("
-
-")
---accepting rule at line 64 ("func")
-Next token is token "func" (7.1-4: )
-Shifting token "func" (7.1-4: )
-Entering state 7
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 91 ("myFunc")
-Next token is token "identifier" (7.6-11: myFunc)
-Shifting token "identifier" (7.6-11: myFunc)
-Entering state 13
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 73 ("(")
-Next token is token "(" (7.13: )
-Shifting token "(" (7.13: )
-Entering state 17
-Reading a token: --accepting rule at line 74 (")")
-Next token is token ")" (7.14: )
-Shifting token ")" (7.14: )
-Entering state 19
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 78 ("{")
-Next token is token "{" (7.16: )
-Shifting token "{" (7.16: )
-Entering state 21
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 59 ("
-")
---accepting rule at line 58 ("	")
---accepting rule at line 65 ("var")
-Next token is token "var" (8.2-4: )
-Shifting token "var" (8.2-4: )
-Entering state 22
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 91 ("hallo")
-Next token is token "identifier" (8.6-10: hallo)
-Shifting token "identifier" (8.6-10: hallo)
-Entering state 27
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 75 ("=")
-Next token is token "=" (8.12: )
-Shifting token "=" (8.12: )
-Entering state 32
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 83 ("1")
-Next token is token "number" (8.14: 1)
-Shifting token "number" (8.14: 1)
-Entering state 37
-Reducing stack by rule 22 (line 127):
-   $1 = token "number" (8.14: 1)
--> $$ = nterm exp (8.14: 1)
-Stack now 32 27 22 21 19 17 13 7 9 9 9 5 3 1 0
-Entering state 39
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 70 ("+")
-Next token is token "+" (8.16: )
-Shifting token "+" (8.16: )
-Entering state 45
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 83 ("1")
-Next token is token "number" (8.18: 1)
-Shifting token "number" (8.18: 1)
-Entering state 37
-Reducing stack by rule 22 (line 127):
-   $1 = token "number" (8.18: 1)
--> $$ = nterm exp (8.18: 1)
-Stack now 45 39 32 27 22 21 19 17 13 7 9 9 9 5 3 1 0
-Entering state 52
-Reading a token: --accepting rule at line 76 (";")
-Next token is token ";" (8.19: )
-Reducing stack by rule 16 (line 121):
-   $1 = nterm exp (8.14: 1)
-   $2 = token "+" (8.16: )
-   $3 = nterm exp (8.18: 1)
--> $$ = nterm exp (8.14-18: 2)
-Stack now 32 27 22 21 19 17 13 7 9 9 9 5 3 1 0
-Entering state 39
-Next token is token ";" (8.19: )
-Reducing stack by rule 14 (line 114):
-   $1 = nterm exp (8.14-18: 2)
--> $$ = nterm assignable (8.14-18: 2)
-Stack now 32 27 22 21 19 17 13 7 9 9 9 5 3 1 0
-Entering state 40
-Next token is token ";" (8.19: )
-Shifting token ";" (8.19: )
-Entering state 48
-Reducing stack by rule 13 (line 111):
-   $1 = token "var" (8.2-4: )
-   $2 = token "identifier" (8.6-10: hallo)
-   $3 = token "=" (8.12: )
-   $4 = nterm assignable (8.14-18: 2)
-   $5 = token ";" (8.19: )
--> $$ = nterm assignment (8.2-19: )
-Stack now 21 19 17 13 7 9 9 9 5 3 1 0
-Entering state 26
-Reading a token: --accepting rule at line 59 ("
-")
---accepting rule at line 58 ("	")
---accepting rule at line 91 ("hallo")
-Next token is token "identifier" (9.2-6: hallo)
-Shifting token "identifier" (9.2-6: hallo)
-Entering state 23
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 75 ("=")
-Next token is token "=" (9.8: )
-Shifting token "=" (9.8: )
-Entering state 28
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 83 ("42")
-Next token is token "number" (9.10-11: 42)
-Shifting token "number" (9.10-11: 42)
-Entering state 37
-Reducing stack by rule 22 (line 127):
-   $1 = token "number" (9.10-11: 42)
--> $$ = nterm exp (9.10-11: 42)
-Stack now 28 23 26 21 19 17 13 7 9 9 9 5 3 1 0
-Entering state 39
-Reading a token: --accepting rule at line 76 (";")
-Next token is token ";" (9.12: )
-Reducing stack by rule 14 (line 114):
-   $1 = nterm exp (9.10-11: 42)
--> $$ = nterm assignable (9.10-11: 42)
-Stack now 28 23 26 21 19 17 13 7 9 9 9 5 3 1 0
-Entering state 38
-Next token is token ";" (9.12: )
-Shifting token ";" (9.12: )
-Entering state 43
-Reducing stack by rule 12 (line 110):
-   $1 = token "identifier" (9.2-6: hallo)
-   $2 = token "=" (9.8: )
-   $3 = nterm assignable (9.10-11: 42)
-   $4 = token ";" (9.12: )
--> $$ = nterm assignment (9.2-12: )
-Stack now 26 21 19 17 13 7 9 9 9 5 3 1 0
-Entering state 26
-Reading a token: --accepting rule at line 59 ("
-")
---accepting rule at line 58 ("	")
---accepting rule at line 59 ("
-")
---accepting rule at line 58 ("	")
---accepting rule at line 65 ("var")
-Next token is token "var" (11.2-4: )
-Shifting token "var" (11.2-4: )
-Entering state 22
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 91 ("davis")
-Next token is token "identifier" (11.6-10: davis)
-Shifting token "identifier" (11.6-10: davis)
-Entering state 27
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 75 ("=")
-Next token is token "=" (11.12: )
-Shifting token "=" (11.12: )
-Entering state 32
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 83 ("1")
-Next token is token "number" (11.14: 1)
-Shifting token "number" (11.14: 1)
-Entering state 37
-Reducing stack by rule 22 (line 127):
-   $1 = token "number" (11.14: 1)
--> $$ = nterm exp (11.14: 1)
-Stack now 32 27 22 26 26 21 19 17 13 7 9 9 9 5 3 1 0
-Entering state 39
-Reading a token: --accepting rule at line 76 (";")
-Next token is token ";" (11.15: )
-Reducing stack by rule 14 (line 114):
-   $1 = nterm exp (11.14: 1)
--> $$ = nterm assignable (11.14: 1)
-Stack now 32 27 22 26 26 21 19 17 13 7 9 9 9 5 3 1 0
-Entering state 40
-Next token is token ";" (11.15: )
-Shifting token ";" (11.15: )
-Entering state 48
-Reducing stack by rule 13 (line 111):
-   $1 = token "var" (11.2-4: )
-   $2 = token "identifier" (11.6-10: davis)
-   $3 = token "=" (11.12: )
-   $4 = nterm assignable (11.14: 1)
-   $5 = token ";" (11.15: )
--> $$ = nterm assignment (11.2-15: )
-Stack now 26 26 21 19 17 13 7 9 9 9 5 3 1 0
-Entering state 26
-Reading a token: --accepting rule at line 59 ("
-")
---accepting rule at line 58 ("	")
---accepting rule at line 59 ("
-")
---accepting rule at line 58 ("	")
---accepting rule at line 65 ("var")
-Next token is token "var" (13.2-4: )
-Shifting token "var" (13.2-4: )
-Entering state 22
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 91 ("definition")
-Next token is token "identifier" (13.6-15: definition)
-Shifting token "identifier" (13.6-15: definition)
-Entering state 27
-Reading a token: --accepting rule at line 76 (";")
-Next token is token ";" (13.16: )
-Shifting token ";" (13.16: )
-Entering state 33
-Reducing stack by rule 11 (line 106):
-   $1 = token "var" (13.2-4: )
-   $2 = token "identifier" (13.6-15: definition)
-   $3 = token ";" (13.16: )
--> $$ = nterm declaration (13.2-16: )
-Stack now 26 26 26 21 19 17 13 7 9 9 9 5 3 1 0
-Entering state 25
-Reading a token: --accepting rule at line 59 ("
-")
---accepting rule at line 58 ("	")
---accepting rule at line 59 ("
-")
---accepting rule at line 58 ("	")
---accepting rule at line 65 ("var")
-Next token is token "var" (15.2-4: )
-Shifting token "var" (15.2-4: )
-Entering state 22
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 91 ("marcell")
-Next token is token "identifier" (15.6-12: marcell)
-Shifting token "identifier" (15.6-12: marcell)
-Entering state 27
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 75 ("=")
-Next token is token "=" (15.14: )
-Shifting token "=" (15.14: )
-Entering state 32
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 77 (""")
-Next token is token "\"" (15.16: )
-Shifting token "\"" (15.16: )
-Entering state 35
-Reading a token: --accepting rule at line 91 ("hallo")
-Next token is token "identifier" (15.17-21: hallo)
-Shifting token "identifier" (15.17-21: hallo)
-Entering state 42
-Reading a token: --accepting rule at line 77 (""")
-Next token is token "\"" (15.22: )
-Shifting token "\"" (15.22: )
-Entering state 50
-Reducing stack by rule 15 (line 115):
-   $1 = token "\"" (15.16: )
-   $2 = token "identifier" (15.17-21: hallo)
-   $3 = token "\"" (15.22: )
--> $$ = nterm assignable (15.16-22: hallo)
-Stack now 32 27 22 25 26 26 26 21 19 17 13 7 9 9 9 5 3 1 0
-Entering state 40
-Reading a token: --accepting rule at line 76 (";")
-Next token is token ";" (15.23: )
-Shifting token ";" (15.23: )
-Entering state 48
-Reducing stack by rule 13 (line 111):
-   $1 = token "var" (15.2-4: )
-   $2 = token "identifier" (15.6-12: marcell)
-   $3 = token "=" (15.14: )
-   $4 = nterm assignable (15.16-22: hallo)
-   $5 = token ";" (15.23: )
--> $$ = nterm assignment (15.2-23: )
-Stack now 25 26 26 26 21 19 17 13 7 9 9 9 5 3 1 0
-Entering state 26
-Reading a token: --accepting rule at line 59 ("
-")
---accepting rule at line 58 ("	")
---accepting rule at line 59 ("
-")
---accepting rule at line 79 ("}")
-Next token is token "}" (17.1: )
-Reducing stack by rule 10 (line 102):
--> $$ = nterm funcbody (15.24: )
-Stack now 26 25 26 26 26 21 19 17 13 7 9 9 9 5 3 1 0
-Entering state 31
-Reducing stack by rule 8 (line 100):
-   $1 = nterm assignment (15.2-23: )
-   $2 = nterm funcbody (15.24: )
--> $$ = nterm funcbody (15.2-23: )
-Stack now 25 26 26 26 21 19 17 13 7 9 9 9 5 3 1 0
-Entering state 30
-Reducing stack by rule 9 (line 101):
-   $1 = nterm declaration (13.2-16: )
-   $2 = nterm funcbody (15.2-23: )
--> $$ = nterm funcbody (13.2-15.23: )
-Stack now 26 26 26 21 19 17 13 7 9 9 9 5 3 1 0
-Entering state 31
-Reducing stack by rule 8 (line 100):
-   $1 = nterm assignment (11.2-15: )
-   $2 = nterm funcbody (13.2-15.23: )
--> $$ = nterm funcbody (11.2-15.23: )
-Stack now 26 26 21 19 17 13 7 9 9 9 5 3 1 0
-Entering state 31
-Reducing stack by rule 8 (line 100):
-   $1 = nterm assignment (9.2-12: )
-   $2 = nterm funcbody (11.2-15.23: )
--> $$ = nterm funcbody (9.2-15.23: )
-Stack now 26 21 19 17 13 7 9 9 9 5 3 1 0
-Entering state 31
-Reducing stack by rule 8 (line 100):
-   $1 = nterm assignment (8.2-19: )
-   $2 = nterm funcbody (9.2-15.23: )
--> $$ = nterm funcbody (8.2-15.23: )
-Stack now 21 19 17 13 7 9 9 9 5 3 1 0
-Entering state 24
-Next token is token "}" (17.1: )
-Shifting token "}" (17.1: )
-Entering state 29
-Reducing stack by rule 7 (line 96):
-   $1 = token "func" (7.1-4: )
-   $2 = token "identifier" (7.6-11: myFunc)
-   $3 = token "(" (7.13: )
-   $4 = token ")" (7.14: )
-   $5 = token "{" (7.16: )
-   $6 = nterm funcbody (8.2-15.23: )
-   $7 = token "}" (17.1: )
--> $$ = nterm funcdef (7.1-17.1: )
-Stack now 9 9 9 5 3 1 0
-Entering state 11
-Reading a token: --(end of buffer or a NUL)
---accepting rule at line 59 ("
-")
---(end of buffer or a NUL)
---EOF (start condition 0)
-Next token is token "end of file" (18.1: )
-Reducing stack by rule 6 (line 93):
--> $$ = nterm funcdefs (17.2: )
-Stack now 11 9 9 9 5 3 1 0
-Entering state 15
-Reducing stack by rule 5 (line 92):
-   $1 = nterm funcdef (7.1-17.1: )
-   $2 = nterm funcdefs (17.2: )
--> $$ = nterm funcdefs (7.1-17.1: )
-Stack now 9 9 9 5 3 1 0
-Entering state 10
-Reducing stack by rule 2 (line 84):
-   $1 = nterm funcdefs (7.1-17.1: )
--> $$ = nterm imports (7.1-17.1: )
-Stack now 9 9 9 5 3 1 0
-Entering state 14
-Reducing stack by rule 3 (line 85):
-   $1 = nterm import (5.1-14: )
-   $2 = nterm imports (7.1-17.1: )
--> $$ = nterm imports (5.1-17.1: )
-Stack now 9 9 5 3 1 0
-Entering state 14
-Reducing stack by rule 3 (line 85):
-   $1 = nterm import (4.1-15: )
-   $2 = nterm imports (5.1-17.1: )
--> $$ = nterm imports (4.1-17.1: )
-Stack now 9 5 3 1 0
-Entering state 14
-Reducing stack by rule 3 (line 85):
-   $1 = nterm import (3.1-14: )
-   $2 = nterm imports (4.1-17.1: )
--> $$ = nterm imports (3.1-17.1: )
-Stack now 5 3 1 0
-Entering state 8
-Reducing stack by rule 1 (line 81):
-   $1 = token "package" (1.1-7: )
-   $2 = token "identifier" (1.9-12: main)
-   $3 = token ";" (1.13: )
-   $4 = nterm imports (3.1-17.1: )
--> $$ = nterm s (1.1-17.1: )
-Stack now 0
-Entering state 2
-Next token is token "end of file" (18.1: )
-Shifting token "end of file" (18.1: )
-Entering state 4
-Cleanup: popping token "end of file" (18.1: )
-Cleanup: popping nterm s (1.1-17.1: )
-Parsing successful!
+text: string: fuuu
+x: Container: mathExp
+Tree:
+Container: root
+	-> Container: package
+		-> Id: main
+	-> Container: imports
+		-> Id: file1
+		-> Id: file2
+	-> Container: functions
+		-> function: func
+			-> Id: main
+			-> assigment: =
+				-> Id: x
+				-> Container: mathExp
+					-> Expression: *
+						-> Expression: +
+							-> Id: a
+							-> Number: 2
+						-> Expression: +
+							-> Id: b
+							-> Expression: *
+								-> Id: c
+								-> Expression: +
+									-> Number: 5
+									-> Id: d
+			-> assigment: =
+				-> Id: text
+				-> string: fuuu
 
 
-davis: 1
-definition: unassigned
-hallo: 42
-marcell: hallo
+tests/test4.go
 Hallo, !0 is true, und ich bin Marcell D'Avis, 1 & 1
-Starting parse
-Entering state 0
-Reading a token: --(end of buffer or a NUL)
---accepting rule at line 62 ("package")
-Next token is token "package" (1.1-7: )
-Shifting token "package" (1.1-7: )
-Entering state 1
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 91 ("main")
-Next token is token "identifier" (1.9-12: main)
-Shifting token "identifier" (1.9-12: main)
-Entering state 3
-Reading a token: --accepting rule at line 76 (";")
-Next token is token ";" (1.13: )
-Shifting token ";" (1.13: )
-Entering state 5
-Reading a token: --accepting rule at line 59 ("
+Starting D'Avis parse ...
+Das Programm läuft!
 
-")
---accepting rule at line 63 ("import")
-Next token is token "import" (3.1-6: )
-Shifting token "import" (3.1-6: )
-Entering state 6
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 77 (""")
-Next token is token "\"" (3.8: )
-Shifting token "\"" (3.8: )
-Entering state 12
-Reading a token: --accepting rule at line 91 ("file1")
-Next token is token "identifier" (3.9-13: file1)
-Shifting token "identifier" (3.9-13: file1)
-Entering state 16
-Reading a token: --accepting rule at line 77 (""")
-Next token is token "\"" (3.14: )
-Shifting token "\"" (3.14: )
-Entering state 18
-Reading a token: --accepting rule at line 76 (";")
-Next token is token ";" (3.15: )
-Shifting token ";" (3.15: )
-Entering state 20
-Reducing stack by rule 4 (line 88):
-   $1 = token "import" (3.1-6: )
-   $2 = token "\"" (3.8: )
-   $3 = token "identifier" (3.9-13: file1)
-   $4 = token "\"" (3.14: )
-   $5 = token ";" (3.15: )
--> $$ = nterm import (3.1-15: )
-Stack now 5 3 1 0
-Entering state 9
-Reading a token: --accepting rule at line 59 ("
-")
---accepting rule at line 63 ("import")
-Next token is token "import" (4.1-6: )
-Shifting token "import" (4.1-6: )
-Entering state 6
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 77 (""")
-Next token is token "\"" (4.8: )
-Shifting token "\"" (4.8: )
-Entering state 12
-Reading a token: --accepting rule at line 91 ("file2")
-Next token is token "identifier" (4.9-13: file2)
-Shifting token "identifier" (4.9-13: file2)
-Entering state 16
-Reading a token: --accepting rule at line 77 (""")
-Next token is token "\"" (4.14: )
-Shifting token "\"" (4.14: )
-Entering state 18
-Reading a token: --accepting rule at line 76 (";")
-Next token is token ";" (4.15: )
-Shifting token ";" (4.15: )
-Entering state 20
-Reducing stack by rule 4 (line 88):
-   $1 = token "import" (4.1-6: )
-   $2 = token "\"" (4.8: )
-   $3 = token "identifier" (4.9-13: file2)
-   $4 = token "\"" (4.14: )
-   $5 = token ";" (4.15: )
--> $$ = nterm import (4.1-15: )
-Stack now 9 5 3 1 0
-Entering state 9
-Reading a token: --accepting rule at line 59 ("
-
-")
---accepting rule at line 64 ("func")
-Next token is token "func" (6.1-4: )
-Shifting token "func" (6.1-4: )
-Entering state 7
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 91 ("main")
-Next token is token "identifier" (6.6-9: main)
-Shifting token "identifier" (6.6-9: main)
-Entering state 13
-Reading a token: --accepting rule at line 73 ("(")
-Next token is token "(" (6.10: )
-Shifting token "(" (6.10: )
-Entering state 17
-Reading a token: --accepting rule at line 74 (")")
-Next token is token ")" (6.11: )
-Shifting token ")" (6.11: )
-Entering state 19
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 78 ("{")
-Next token is token "{" (6.13: )
-Shifting token "{" (6.13: )
-Entering state 21
-Reading a token: --accepting rule at line 59 ("
-")
---accepting rule at line 58 ("	")
---accepting rule at line 65 ("var")
-Next token is token "var" (7.2-4: )
-Shifting token "var" (7.2-4: )
-Entering state 22
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 91 ("x")
-Next token is token "identifier" (7.6: x)
-Shifting token "identifier" (7.6: x)
-Entering state 27
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 75 ("=")
-Next token is token "=" (7.8: )
-Shifting token "=" (7.8: )
-Entering state 32
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 73 ("(")
-Next token is token "(" (7.10: )
-Shifting token "(" (7.10: )
-Entering state 34
-Reading a token: --accepting rule at line 83 ("1")
-Next token is token "number" (7.11: 1)
-Shifting token "number" (7.11: 1)
-Entering state 37
-Reducing stack by rule 22 (line 127):
-   $1 = token "number" (7.11: 1)
--> $$ = nterm exp (7.11: 1)
-Stack now 34 32 27 22 21 19 17 13 7 9 9 5 3 1 0
-Entering state 41
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 70 ("+")
-Next token is token "+" (7.13: )
-Shifting token "+" (7.13: )
-Entering state 45
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 83 ("2")
-Next token is token "number" (7.15: 2)
-Shifting token "number" (7.15: 2)
-Entering state 37
-Reducing stack by rule 22 (line 127):
-   $1 = token "number" (7.15: 2)
--> $$ = nterm exp (7.15: 2)
-Stack now 45 41 34 32 27 22 21 19 17 13 7 9 9 5 3 1 0
-Entering state 52
-Reading a token: --accepting rule at line 74 (")")
-Next token is token ")" (7.16: )
-Reducing stack by rule 16 (line 121):
-   $1 = nterm exp (7.11: 1)
-   $2 = token "+" (7.13: )
-   $3 = nterm exp (7.15: 2)
--> $$ = nterm exp (7.11-15: 3)
-Stack now 34 32 27 22 21 19 17 13 7 9 9 5 3 1 0
-Entering state 41
-Next token is token ")" (7.16: )
-Shifting token ")" (7.16: )
-Entering state 49
-Reducing stack by rule 20 (line 125):
-   $1 = token "(" (7.10: )
-   $2 = nterm exp (7.11-15: 3)
-   $3 = token ")" (7.16: )
--> $$ = nterm exp (7.10-16: 3)
-Stack now 32 27 22 21 19 17 13 7 9 9 5 3 1 0
-Entering state 39
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 71 ("*")
-Next token is token "*" (7.18: )
-Shifting token "*" (7.18: )
-Entering state 46
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 73 ("(")
-Next token is token "(" (7.20: )
-Shifting token "(" (7.20: )
-Entering state 34
-Reading a token: --accepting rule at line 83 ("3")
-Next token is token "number" (7.21: 3)
-Shifting token "number" (7.21: 3)
-Entering state 37
-Reducing stack by rule 22 (line 127):
-   $1 = token "number" (7.21: 3)
--> $$ = nterm exp (7.21: 3)
-Stack now 34 46 39 32 27 22 21 19 17 13 7 9 9 5 3 1 0
-Entering state 41
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 70 ("+")
-Next token is token "+" (7.23: )
-Shifting token "+" (7.23: )
-Entering state 45
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 83 ("4")
-Next token is token "number" (7.25: 4)
-Shifting token "number" (7.25: 4)
-Entering state 37
-Reducing stack by rule 22 (line 127):
-   $1 = token "number" (7.25: 4)
--> $$ = nterm exp (7.25: 4)
-Stack now 45 41 34 46 39 32 27 22 21 19 17 13 7 9 9 5 3 1 0
-Entering state 52
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 71 ("*")
-Next token is token "*" (7.27: )
-Shifting token "*" (7.27: )
-Entering state 46
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 73 ("(")
-Next token is token "(" (7.29: )
-Shifting token "(" (7.29: )
-Entering state 34
-Reading a token: --accepting rule at line 83 ("5")
-Next token is token "number" (7.30: 5)
-Shifting token "number" (7.30: 5)
-Entering state 37
-Reducing stack by rule 22 (line 127):
-   $1 = token "number" (7.30: 5)
--> $$ = nterm exp (7.30: 5)
-Stack now 34 46 52 45 41 34 46 39 32 27 22 21 19 17 13 7 9 9 5 3 1 0
-Entering state 41
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 70 ("+")
-Next token is token "+" (7.32: )
-Shifting token "+" (7.32: )
-Entering state 45
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 83 ("6")
-Next token is token "number" (7.34: 6)
-Shifting token "number" (7.34: 6)
-Entering state 37
-Reducing stack by rule 22 (line 127):
-   $1 = token "number" (7.34: 6)
--> $$ = nterm exp (7.34: 6)
-Stack now 45 41 34 46 52 45 41 34 46 39 32 27 22 21 19 17 13 7 9 9 5 3 1 0
-Entering state 52
-Reading a token: --accepting rule at line 74 (")")
-Next token is token ")" (7.35: )
-Reducing stack by rule 16 (line 121):
-   $1 = nterm exp (7.30: 5)
-   $2 = token "+" (7.32: )
-   $3 = nterm exp (7.34: 6)
--> $$ = nterm exp (7.30-34: 11)
-Stack now 34 46 52 45 41 34 46 39 32 27 22 21 19 17 13 7 9 9 5 3 1 0
-Entering state 41
-Next token is token ")" (7.35: )
-Shifting token ")" (7.35: )
-Entering state 49
-Reducing stack by rule 20 (line 125):
-   $1 = token "(" (7.29: )
-   $2 = nterm exp (7.30-34: 11)
-   $3 = token ")" (7.35: )
--> $$ = nterm exp (7.29-35: 11)
-Stack now 46 52 45 41 34 46 39 32 27 22 21 19 17 13 7 9 9 5 3 1 0
-Entering state 53
-Reducing stack by rule 18 (line 123):
-   $1 = nterm exp (7.25: 4)
-   $2 = token "*" (7.27: )
-   $3 = nterm exp (7.29-35: 11)
--> $$ = nterm exp (7.25-35: 44)
-Stack now 45 41 34 46 39 32 27 22 21 19 17 13 7 9 9 5 3 1 0
-Entering state 52
-Reading a token: --accepting rule at line 74 (")")
-Next token is token ")" (7.36: )
-Reducing stack by rule 16 (line 121):
-   $1 = nterm exp (7.21: 3)
-   $2 = token "+" (7.23: )
-   $3 = nterm exp (7.25-35: 44)
--> $$ = nterm exp (7.21-35: 47)
-Stack now 34 46 39 32 27 22 21 19 17 13 7 9 9 5 3 1 0
-Entering state 41
-Next token is token ")" (7.36: )
-Shifting token ")" (7.36: )
-Entering state 49
-Reducing stack by rule 20 (line 125):
-   $1 = token "(" (7.20: )
-   $2 = nterm exp (7.21-35: 47)
-   $3 = token ")" (7.36: )
--> $$ = nterm exp (7.20-36: 47)
-Stack now 46 39 32 27 22 21 19 17 13 7 9 9 5 3 1 0
-Entering state 53
-Reducing stack by rule 18 (line 123):
-   $1 = nterm exp (7.10-16: 3)
-   $2 = token "*" (7.18: )
-   $3 = nterm exp (7.20-36: 47)
--> $$ = nterm exp (7.10-36: 141)
-Stack now 32 27 22 21 19 17 13 7 9 9 5 3 1 0
-Entering state 39
-Reading a token: --accepting rule at line 76 (";")
-Next token is token ";" (7.37: )
-Reducing stack by rule 14 (line 114):
-   $1 = nterm exp (7.10-36: 141)
--> $$ = nterm assignable (7.10-36: 141)
-Stack now 32 27 22 21 19 17 13 7 9 9 5 3 1 0
-Entering state 40
-Next token is token ";" (7.37: )
-Shifting token ";" (7.37: )
-Entering state 48
-Reducing stack by rule 13 (line 111):
-   $1 = token "var" (7.2-4: )
-   $2 = token "identifier" (7.6: x)
-   $3 = token "=" (7.8: )
-   $4 = nterm assignable (7.10-36: 141)
-   $5 = token ";" (7.37: )
--> $$ = nterm assignment (7.2-37: )
-Stack now 21 19 17 13 7 9 9 5 3 1 0
-Entering state 26
-Reading a token: --accepting rule at line 59 ("
-")
---accepting rule at line 58 ("	")
---accepting rule at line 65 ("var")
-Next token is token "var" (8.2-4: )
-Shifting token "var" (8.2-4: )
-Entering state 22
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 91 ("y")
-Next token is token "identifier" (8.6: y)
-Shifting token "identifier" (8.6: y)
-Entering state 27
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 75 ("=")
-Next token is token "=" (8.8: )
-Shifting token "=" (8.8: )
-Entering state 32
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 83 ("1")
-Next token is token "number" (8.10: 1)
-Shifting token "number" (8.10: 1)
-Entering state 37
-Reducing stack by rule 22 (line 127):
-   $1 = token "number" (8.10: 1)
--> $$ = nterm exp (8.10: 1)
-Stack now 32 27 22 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 39
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 70 ("+")
-Next token is token "+" (8.12: )
-Shifting token "+" (8.12: )
-Entering state 45
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 83 ("2")
-Next token is token "number" (8.14: 2)
-Shifting token "number" (8.14: 2)
-Entering state 37
-Reducing stack by rule 22 (line 127):
-   $1 = token "number" (8.14: 2)
--> $$ = nterm exp (8.14: 2)
-Stack now 45 39 32 27 22 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 52
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 71 ("*")
-Next token is token "*" (8.16: )
-Shifting token "*" (8.16: )
-Entering state 46
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 83 ("3")
-Next token is token "number" (8.18: 3)
-Shifting token "number" (8.18: 3)
-Entering state 37
-Reducing stack by rule 22 (line 127):
-   $1 = token "number" (8.18: 3)
--> $$ = nterm exp (8.18: 3)
-Stack now 46 52 45 39 32 27 22 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 53
-Reducing stack by rule 18 (line 123):
-   $1 = nterm exp (8.14: 2)
-   $2 = token "*" (8.16: )
-   $3 = nterm exp (8.18: 3)
--> $$ = nterm exp (8.14-18: 6)
-Stack now 45 39 32 27 22 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 52
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 70 ("+")
-Next token is token "+" (8.20: )
-Reducing stack by rule 16 (line 121):
-   $1 = nterm exp (8.10: 1)
-   $2 = token "+" (8.12: )
-   $3 = nterm exp (8.14-18: 6)
--> $$ = nterm exp (8.10-18: 7)
-Stack now 32 27 22 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 39
-Next token is token "+" (8.20: )
-Shifting token "+" (8.20: )
-Entering state 45
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 83 ("4")
-Next token is token "number" (8.22: 4)
-Shifting token "number" (8.22: 4)
-Entering state 37
-Reducing stack by rule 22 (line 127):
-   $1 = token "number" (8.22: 4)
--> $$ = nterm exp (8.22: 4)
-Stack now 45 39 32 27 22 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 52
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 71 ("*")
-Next token is token "*" (8.24: )
-Shifting token "*" (8.24: )
-Entering state 46
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 83 ("5")
-Next token is token "number" (8.26: 5)
-Shifting token "number" (8.26: 5)
-Entering state 37
-Reducing stack by rule 22 (line 127):
-   $1 = token "number" (8.26: 5)
--> $$ = nterm exp (8.26: 5)
-Stack now 46 52 45 39 32 27 22 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 53
-Reducing stack by rule 18 (line 123):
-   $1 = nterm exp (8.22: 4)
-   $2 = token "*" (8.24: )
-   $3 = nterm exp (8.26: 5)
--> $$ = nterm exp (8.22-26: 20)
-Stack now 45 39 32 27 22 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 52
-Reading a token: --accepting rule at line 76 (";")
-Next token is token ";" (8.27: )
-Reducing stack by rule 16 (line 121):
-   $1 = nterm exp (8.10-18: 7)
-   $2 = token "+" (8.20: )
-   $3 = nterm exp (8.22-26: 20)
--> $$ = nterm exp (8.10-26: 27)
-Stack now 32 27 22 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 39
-Next token is token ";" (8.27: )
-Reducing stack by rule 14 (line 114):
-   $1 = nterm exp (8.10-26: 27)
--> $$ = nterm assignable (8.10-26: 27)
-Stack now 32 27 22 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 40
-Next token is token ";" (8.27: )
-Shifting token ";" (8.27: )
-Entering state 48
-Reducing stack by rule 13 (line 111):
-   $1 = token "var" (8.2-4: )
-   $2 = token "identifier" (8.6: y)
-   $3 = token "=" (8.8: )
-   $4 = nterm assignable (8.10-26: 27)
-   $5 = token ";" (8.27: )
--> $$ = nterm assignment (8.2-27: )
-Stack now 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 26
-Reading a token: --accepting rule at line 59 ("
-")
---accepting rule at line 58 ("	")
---accepting rule at line 65 ("var")
-Next token is token "var" (9.2-4: )
-Shifting token "var" (9.2-4: )
-Entering state 22
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 91 ("z")
-Next token is token "identifier" (9.6: z)
-Shifting token "identifier" (9.6: z)
-Entering state 27
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 75 ("=")
-Next token is token "=" (9.8: )
-Shifting token "=" (9.8: )
-Entering state 32
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 83 ("1")
-Next token is token "number" (9.10: 1)
-Shifting token "number" (9.10: 1)
-Entering state 37
-Reducing stack by rule 22 (line 127):
-   $1 = token "number" (9.10: 1)
--> $$ = nterm exp (9.10: 1)
-Stack now 32 27 22 26 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 39
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 70 ("+")
-Next token is token "+" (9.12: )
-Shifting token "+" (9.12: )
-Entering state 45
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 83 ("2")
-Next token is token "number" (9.14: 2)
-Shifting token "number" (9.14: 2)
-Entering state 37
-Reducing stack by rule 22 (line 127):
-   $1 = token "number" (9.14: 2)
--> $$ = nterm exp (9.14: 2)
-Stack now 45 39 32 27 22 26 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 52
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 70 ("+")
-Next token is token "+" (9.16: )
-Reducing stack by rule 16 (line 121):
-   $1 = nterm exp (9.10: 1)
-   $2 = token "+" (9.12: )
-   $3 = nterm exp (9.14: 2)
--> $$ = nterm exp (9.10-14: 3)
-Stack now 32 27 22 26 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 39
-Next token is token "+" (9.16: )
-Shifting token "+" (9.16: )
-Entering state 45
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 83 ("3")
-Next token is token "number" (9.18: 3)
-Shifting token "number" (9.18: 3)
-Entering state 37
-Reducing stack by rule 22 (line 127):
-   $1 = token "number" (9.18: 3)
--> $$ = nterm exp (9.18: 3)
-Stack now 45 39 32 27 22 26 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 52
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 70 ("+")
-Next token is token "+" (9.20: )
-Reducing stack by rule 16 (line 121):
-   $1 = nterm exp (9.10-14: 3)
-   $2 = token "+" (9.16: )
-   $3 = nterm exp (9.18: 3)
--> $$ = nterm exp (9.10-18: 6)
-Stack now 32 27 22 26 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 39
-Next token is token "+" (9.20: )
-Shifting token "+" (9.20: )
-Entering state 45
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 83 ("4")
-Next token is token "number" (9.22: 4)
-Shifting token "number" (9.22: 4)
-Entering state 37
-Reducing stack by rule 22 (line 127):
-   $1 = token "number" (9.22: 4)
--> $$ = nterm exp (9.22: 4)
-Stack now 45 39 32 27 22 26 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 52
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 70 ("+")
-Next token is token "+" (9.24: )
-Reducing stack by rule 16 (line 121):
-   $1 = nterm exp (9.10-18: 6)
-   $2 = token "+" (9.20: )
-   $3 = nterm exp (9.22: 4)
--> $$ = nterm exp (9.10-22: 10)
-Stack now 32 27 22 26 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 39
-Next token is token "+" (9.24: )
-Shifting token "+" (9.24: )
-Entering state 45
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 83 ("5")
-Next token is token "number" (9.26: 5)
-Shifting token "number" (9.26: 5)
-Entering state 37
-Reducing stack by rule 22 (line 127):
-   $1 = token "number" (9.26: 5)
--> $$ = nterm exp (9.26: 5)
-Stack now 45 39 32 27 22 26 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 52
-Reading a token: --accepting rule at line 58 (" ")
---accepting rule at line 76 (";")
-Next token is token ";" (9.28: )
-Reducing stack by rule 16 (line 121):
-   $1 = nterm exp (9.10-22: 10)
-   $2 = token "+" (9.24: )
-   $3 = nterm exp (9.26: 5)
--> $$ = nterm exp (9.10-26: 15)
-Stack now 32 27 22 26 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 39
-Next token is token ";" (9.28: )
-Reducing stack by rule 14 (line 114):
-   $1 = nterm exp (9.10-26: 15)
--> $$ = nterm assignable (9.10-26: 15)
-Stack now 32 27 22 26 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 40
-Next token is token ";" (9.28: )
-Shifting token ";" (9.28: )
-Entering state 48
-Reducing stack by rule 13 (line 111):
-   $1 = token "var" (9.2-4: )
-   $2 = token "identifier" (9.6: z)
-   $3 = token "=" (9.8: )
-   $4 = nterm assignable (9.10-26: 15)
-   $5 = token ";" (9.28: )
--> $$ = nterm assignment (9.2-28: )
-Stack now 26 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 26
-Reading a token: --accepting rule at line 59 ("
-")
---accepting rule at line 79 ("}")
-Next token is token "}" (10.1: )
-Reducing stack by rule 10 (line 102):
--> $$ = nterm funcbody (9.29: )
-Stack now 26 26 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 31
-Reducing stack by rule 8 (line 100):
-   $1 = nterm assignment (9.2-28: )
-   $2 = nterm funcbody (9.29: )
--> $$ = nterm funcbody (9.2-28: )
-Stack now 26 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 31
-Reducing stack by rule 8 (line 100):
-   $1 = nterm assignment (8.2-27: )
-   $2 = nterm funcbody (9.2-28: )
--> $$ = nterm funcbody (8.2-9.28: )
-Stack now 26 21 19 17 13 7 9 9 5 3 1 0
-Entering state 31
-Reducing stack by rule 8 (line 100):
-   $1 = nterm assignment (7.2-37: )
-   $2 = nterm funcbody (8.2-9.28: )
--> $$ = nterm funcbody (7.2-9.28: )
-Stack now 21 19 17 13 7 9 9 5 3 1 0
-Entering state 24
-Next token is token "}" (10.1: )
-Shifting token "}" (10.1: )
-Entering state 29
-Reducing stack by rule 7 (line 96):
-   $1 = token "func" (6.1-4: )
-   $2 = token "identifier" (6.6-9: main)
-   $3 = token "(" (6.10: )
-   $4 = token ")" (6.11: )
-   $5 = token "{" (6.13: )
-   $6 = nterm funcbody (7.2-9.28: )
-   $7 = token "}" (10.1: )
--> $$ = nterm funcdef (6.1-10.1: )
-Stack now 9 9 5 3 1 0
-Entering state 11
-Reading a token: --(end of buffer or a NUL)
---accepting rule at line 59 ("
-")
---(end of buffer or a NUL)
---EOF (start condition 0)
-Next token is token "end of file" (11.1: )
-Reducing stack by rule 6 (line 93):
--> $$ = nterm funcdefs (10.2: )
-Stack now 11 9 9 5 3 1 0
-Entering state 15
-Reducing stack by rule 5 (line 92):
-   $1 = nterm funcdef (6.1-10.1: )
-   $2 = nterm funcdefs (10.2: )
--> $$ = nterm funcdefs (6.1-10.1: )
-Stack now 9 9 5 3 1 0
-Entering state 10
-Reducing stack by rule 2 (line 84):
-   $1 = nterm funcdefs (6.1-10.1: )
--> $$ = nterm imports (6.1-10.1: )
-Stack now 9 9 5 3 1 0
-Entering state 14
-Reducing stack by rule 3 (line 85):
-   $1 = nterm import (4.1-15: )
-   $2 = nterm imports (6.1-10.1: )
--> $$ = nterm imports (4.1-10.1: )
-Stack now 9 5 3 1 0
-Entering state 14
-Reducing stack by rule 3 (line 85):
-   $1 = nterm import (3.1-15: )
-   $2 = nterm imports (4.1-10.1: )
--> $$ = nterm imports (3.1-10.1: )
-Stack now 5 3 1 0
-Entering state 8
-Reducing stack by rule 1 (line 81):
-   $1 = token "package" (1.1-7: )
-   $2 = token "identifier" (1.9-12: main)
-   $3 = token ";" (1.13: )
-   $4 = nterm imports (3.1-10.1: )
--> $$ = nterm s (1.1-10.1: )
-Stack now 0
-Entering state 2
-Next token is token "end of file" (11.1: )
-Shifting token "end of file" (11.1: )
-Entering state 4
-Cleanup: popping token "end of file" (11.1: )
-Cleanup: popping nterm s (1.1-10.1: )
-Parsing successful!
+x: string: Hallo
+Tree:
+Container: root
+	-> Container: package
+		-> Id: main
+	-> Container: imports
+		-> Id: file1
+		-> Id: file2
+	-> Container: functions
+		-> function: func
+			-> Id: main
+			-> assigment: =
+				-> Id: x
+				-> string: Hallo
 
 
-x: 141
-y: 27
-z: 15
+tests/test5.go
+Hallo, !0 is true, und ich bin Marcell D'Avis, 1 & 1
+Starting D'Avis parse ...
+Das Programm läuft!
+
+errorLine: Container: mathExp
+x: Container: mathExp
+Tree:
+Container: root
+	-> Container: package
+		-> Id: main
+	-> Container: imports
+		-> Id: fmt
+	-> Container: functions
+		-> function: func
+			-> Id: main
+			-> assigment: =
+				-> Id: x
+				-> Container: mathExp
+					-> Number: 0
+			-> assigment: =
+				-> Id: errorLine
+				-> Container: mathExp
+					-> Number: 7
+		-> function: func
+			-> Id: test
+
+
+tests/fail1.go
+Hallo, !0 is true, und ich bin Marcell D'Avis, 1 & 1
+Starting D'Avis parse ...
+8.1: syntax error, unexpected }, expecting ;
+Ich kompiliere erst, wenn das Programm läuft!
+
+tests/fail2.go
+Hallo, !0 is true, und ich bin Marcell D'Avis, 1 & 1
+Starting D'Avis parse ...
+1.1-6: syntax error, unexpected import, expecting package
+Ich kompiliere erst, wenn das Programm läuft!
+
+tests/fail3.go
+Hallo, !0 is true, und ich bin Marcell D'Avis, 1 & 1
+Starting D'Avis parse ...
+1.1-4: syntax error, unexpected func, expecting package
+Ich kompiliere erst, wenn das Programm läuft!
+
+tests/fail4.go
+Hallo, !0 is true, und ich bin Marcell D'Avis, 1 & 1
+Starting D'Avis parse ...
+5.11: syntax error, unexpected ), expecting (
+Ich kompiliere erst, wenn das Programm läuft!
+
+tests/fail5.go
+Hallo, !0 is true, und ich bin Marcell D'Avis, 1 & 1
+Starting D'Avis parse ...
+5.12: syntax error, unexpected {, expecting )
+Ich kompiliere erst, wenn das Programm läuft!

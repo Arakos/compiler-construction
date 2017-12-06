@@ -25,6 +25,7 @@
 {
 # include <string>
 class calcxx_driver;
+class NewTreeNode;
 }
 
 // The parsing context.
@@ -43,6 +44,8 @@ class calcxx_driver;
 %code
 {
 # include "calc++-driver.hh"
+# include "NewTreeNode.h"
+# include <vector>
 }
 
 %define api.token.prefix {TOK_}
@@ -69,8 +72,19 @@ class calcxx_driver;
 
 %token <std::string> IDENTIFIER "identifier"
 %token <int> NUMBER "number"
-%type  <int> exp
-%type <std::string> assignable
+
+%type <NewTreeNode*> s
+%type <NewTreeNode*> package
+%type <std::vector<NewTreeNode*>*> imports
+%type <NewTreeNode*> import
+%type <std::vector<NewTreeNode*>*> funcdefs
+%type <NewTreeNode*> funcdef
+%type <std::vector<NewTreeNode*>*> funcbody
+%type <NewTreeNode*> declaration
+%type <NewTreeNode*> assignment
+%type <NewTreeNode*> assignable
+%type <NewTreeNode*> exp
+
 
 %printer { yyoutput << $$; } <*>;
 
@@ -78,55 +92,103 @@ class calcxx_driver;
 %start s;
 
 s: 
-PACKAGE IDENTIFIER ";" imports { driver.result = 123;};
+	package imports funcdefs	{ 
+									$$ = new ContainerNode("root");
+									$$->addChild($1);
+									NewTreeNode* tmp = new ContainerNode("imports");
+									for(int i = $2->size()-1; i >= 0; i--) {
+										tmp->addChild((*$2)[i]);
+									}
+									$$->addChild(tmp);
+									tmp = new ContainerNode("functions");
+									for(int i = $3->size()-1; i >= 0; i--) {
+										tmp->addChild((*$3)[i]);
+									}									
+									$$->addChild(tmp);
+									
+									driver.tree = $$;
+								}
+	
+package:
+	PACKAGE IDENTIFIER ";"	{ 
+								$$ = new ContainerNode("package"); 
+								$$->addChild( new IdentifierNode($2) ); 
+							};
 
 imports: 
-	  funcdefs				{}
-	| import imports		{};
+	import imports		{
+							$$ = $2;
+							$$->push_back($1);
+						}
+	| %empty			{ $$ = new std::vector<NewTreeNode*>; };
 	
 import :
-	IMPORT QUOT IDENTIFIER QUOT ";" {};
+	IMPORT QUOT IDENTIFIER QUOT ";" { $$ = new IdentifierNode($3); };
 	
 	
 funcdefs:
-	funcdef funcdefs	{};
-	| %empty			{};
+	funcdef funcdefs	{
+							$$ = $2;
+							$$->push_back($1);
+						}
+	| %empty			{ $$ = new std::vector<NewTreeNode*>; };
 	
 funcdef:
-	 FUNC IDENTIFIER "(" ")" "{" funcbody "}" {};
+	 FUNC IDENTIFIER "(" ")" "{" funcbody "}" 	{
+													$$ = new StatementNode(new IdentifierNode($2), NULL, "function", "func");
+													for(int i = $6->size()-1; i >= 0; i--) {
+														$$->addChild((*$6)[i]);
+													}
+												};
 	 
 	 
 funcbody: 
-	assignment funcbody				{}
-	| declaration funcbody			{}
-	| %empty						{};
+	assignment funcbody				{
+										$$ = $2;
+										$$->push_back($1);
+									}
+	| declaration funcbody			{
+										$$ = $2;
+										$$->push_back($1);
+									}
+	| %empty						{ $$ = new std::vector<NewTreeNode*>; };
 
 	
 declaration:
-	VAR IDENTIFIER ";"						{driver.variables[$2] = "unassigned";};
+	VAR IDENTIFIER ";"						{
+												driver.variables[$2] = "unassigned";
+												$$ = new StatementNode(new IdentifierNode($2), NULL, "declaration", "");
+											};
 	
 	
 assignment:
-  IDENTIFIER "=" assignable ";" 			{driver.variables[$1] = $3;}
-  | VAR IDENTIFIER "=" assignable ";" 		{driver.variables[$2] = $4;};
+  IDENTIFIER "=" assignable ";" 			{
+												driver.variables[$1] = $3->flatToString();
+												$$ = new StatementNode(new IdentifierNode($1), $3, "assigment", "=");
+											}
+  | VAR IDENTIFIER "=" assignable ";" 		{
+												driver.variables[$2] = $4->flatToString();
+												$$ = new StatementNode(new IdentifierNode($2), $4, "assigment", "=");
+											};
   
 assignable:
-	exp	{$$ = std::to_string($1);}
-	| QUOT IDENTIFIER QUOT {$$ = $2;};
+	exp								{ $$ = new ContainerNode("mathExp"); $$->addChild($1); }
+	| QUOT IDENTIFIER QUOT 			{ $$ = new ValueNode("string", $2);	};
 	
 
 %left "+" "-";
 %left "*" "/";
 exp:
-  exp "+" exp   { $$ = $1 + $3; }
-| exp "-" exp   { $$ = $1 - $3; }
-| exp "*" exp   { $$ = $1 * $3; }
-| exp "/" exp   { $$ = $1 / $3; }
-| "(" exp ")"   { std::swap ($$, $2); }
-| "identifier"  { $$ = std::stoi(driver.variables[$1]); }
-| "number"      { std::swap ($$, $1); };
-%%
+  exp "+" exp   { $$ = new ExpressionNode($1, $3, "+"); }
+| exp "-" exp   { $$ = new ExpressionNode($1, $3, "-"); }
+| exp "*" exp   { $$ = new ExpressionNode($1, $3, "*"); }
+| exp "/" exp   { $$ = new ExpressionNode($1, $3, "/"); }
+| "(" exp ")"   { $$ = $2; }
+| "identifier"  { $$ = new IdentifierNode($1); }
+| "number"      { $$ = new ValueNode( "Number", std::to_string($1) ); };
 
+
+%%
 void
 yy::calcxx_parser::error (const location_type& l,
                           const std::string& m)

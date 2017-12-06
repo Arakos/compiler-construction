@@ -88,6 +88,7 @@ blank [ \t]
 }
 
 {id}       return yy::calcxx_parser::make_IDENTIFIER(yytext, loc);
+\r			;
 .          driver.error (loc, "invalid character");
 <<EOF>>    return yy::calcxx_parser::make_END(loc);
 %%

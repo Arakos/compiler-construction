@@ -3,6 +3,7 @@
 # include <string>
 # include <map>
 # include "calc++-parser.hh"
+# include "NewTreeNode.h"
 
 // Tell Flex the lexer's prototype ...
 # define YY_DECL \
@@ -20,6 +21,8 @@ public:
   std::map<std::string, std::string> variables;
 
   int result;
+  
+  NewTreeNode* tree = NULL;
 
   // Handling the scanner.
   void scan_begin ();

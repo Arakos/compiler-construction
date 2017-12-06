@@ -44,8 +44,9 @@
 
 # include <string>
 class calcxx_driver;
+class NewTreeNode;
 
-#line 49 "calc++-parser.hh" // lalr1.cc:377
+#line 50 "calc++-parser.hh" // lalr1.cc:377
 
 # include <cassert>
 # include <cstdlib> // std::abort
@@ -122,7 +123,7 @@ class calcxx_driver;
 
 
 namespace yy {
-#line 126 "calc++-parser.hh" // lalr1.cc:377
+#line 127 "calc++-parser.hh" // lalr1.cc:377
 
 
 
@@ -289,13 +290,26 @@ namespace yy {
     /// An auxiliary type to compute the largest semantic type.
     union union_type
     {
-      // "number"
+      // s
+      // package
+      // import
+      // funcdef
+      // declaration
+      // assignment
+      // assignable
       // exp
-      char dummy1[sizeof(int)];
+      char dummy1[sizeof(NewTreeNode*)];
+
+      // "number"
+      char dummy2[sizeof(int)];
 
       // "identifier"
-      // assignable
-      char dummy2[sizeof(std::string)];
+      char dummy3[sizeof(std::string)];
+
+      // imports
+      // funcdefs
+      // funcbody
+      char dummy4[sizeof(std::vector<NewTreeNode*>*)];
 };
 
     /// Symbol semantic values.
@@ -373,9 +387,13 @@ namespace yy {
 
   basic_symbol (typename Base::kind_type t, const location_type& l);
 
+  basic_symbol (typename Base::kind_type t, const NewTreeNode* v, const location_type& l);
+
   basic_symbol (typename Base::kind_type t, const int v, const location_type& l);
 
   basic_symbol (typename Base::kind_type t, const std::string v, const location_type& l);
+
+  basic_symbol (typename Base::kind_type t, const std::vector<NewTreeNode*>* v, const location_type& l);
 
 
       /// Constructor for symbols with semantic value.
@@ -721,9 +739,9 @@ namespace yy {
     enum
     {
       yyeof_ = 0,
-      yylast_ = 54,     ///< Last index in yytable_.
-      yynnts_ = 11,  ///< Number of nonterminal symbols.
-      yyfinal_ = 4, ///< Termination state number.
+      yylast_ = 55,     ///< Last index in yytable_.
+      yynnts_ = 12,  ///< Number of nonterminal symbols.
+      yyfinal_ = 5, ///< Termination state number.
       yyterror_ = 1,
       yyerrcode_ = 256,
       yyntokens_ = 20  ///< Number of tokens.
@@ -805,14 +823,29 @@ namespace yy {
   {
       switch (other.type_get ())
     {
+      case 21: // s
+      case 22: // package
+      case 24: // import
+      case 26: // funcdef
+      case 28: // declaration
+      case 29: // assignment
+      case 30: // assignable
+      case 31: // exp
+        value.copy< NewTreeNode* > (other.value);
+        break;
+
       case 19: // "number"
-      case 30: // exp
         value.copy< int > (other.value);
         break;
 
       case 18: // "identifier"
-      case 29: // assignable
         value.copy< std::string > (other.value);
+        break;
+
+      case 23: // imports
+      case 25: // funcdefs
+      case 27: // funcbody
+        value.copy< std::vector<NewTreeNode*>* > (other.value);
         break;
 
       default:
@@ -832,14 +865,29 @@ namespace yy {
     (void) v;
       switch (this->type_get ())
     {
+      case 21: // s
+      case 22: // package
+      case 24: // import
+      case 26: // funcdef
+      case 28: // declaration
+      case 29: // assignment
+      case 30: // assignable
+      case 31: // exp
+        value.copy< NewTreeNode* > (v);
+        break;
+
       case 19: // "number"
-      case 30: // exp
         value.copy< int > (v);
         break;
 
       case 18: // "identifier"
-      case 29: // assignable
         value.copy< std::string > (v);
+        break;
+
+      case 23: // imports
+      case 25: // funcdefs
+      case 27: // funcbody
+        value.copy< std::vector<NewTreeNode*>* > (v);
         break;
 
       default:
@@ -858,6 +906,13 @@ namespace yy {
   {}
 
   template <typename Base>
+  calcxx_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, const NewTreeNode* v, const location_type& l)
+    : Base (t)
+    , value (v)
+    , location (l)
+  {}
+
+  template <typename Base>
   calcxx_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, const int v, const location_type& l)
     : Base (t)
     , value (v)
@@ -866,6 +921,13 @@ namespace yy {
 
   template <typename Base>
   calcxx_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, const std::string v, const location_type& l)
+    : Base (t)
+    , value (v)
+    , location (l)
+  {}
+
+  template <typename Base>
+  calcxx_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, const std::vector<NewTreeNode*>* v, const location_type& l)
     : Base (t)
     , value (v)
     , location (l)
@@ -897,14 +959,29 @@ namespace yy {
     // Type destructor.
     switch (yytype)
     {
+      case 21: // s
+      case 22: // package
+      case 24: // import
+      case 26: // funcdef
+      case 28: // declaration
+      case 29: // assignment
+      case 30: // assignable
+      case 31: // exp
+        value.template destroy< NewTreeNode* > ();
+        break;
+
       case 19: // "number"
-      case 30: // exp
         value.template destroy< int > ();
         break;
 
       case 18: // "identifier"
-      case 29: // assignable
         value.template destroy< std::string > ();
+        break;
+
+      case 23: // imports
+      case 25: // funcdefs
+      case 27: // funcbody
+        value.template destroy< std::vector<NewTreeNode*>* > ();
         break;
 
       default:
@@ -930,14 +1007,29 @@ namespace yy {
     super_type::move(s);
       switch (this->type_get ())
     {
+      case 21: // s
+      case 22: // package
+      case 24: // import
+      case 26: // funcdef
+      case 28: // declaration
+      case 29: // assignment
+      case 30: // assignable
+      case 31: // exp
+        value.move< NewTreeNode* > (s.value);
+        break;
+
       case 19: // "number"
-      case 30: // exp
         value.move< int > (s.value);
         break;
 
       case 18: // "identifier"
-      case 29: // assignable
         value.move< std::string > (s.value);
+        break;
+
+      case 23: // imports
+      case 25: // funcdefs
+      case 27: // funcbody
+        value.move< std::vector<NewTreeNode*>* > (s.value);
         break;
 
       default:
@@ -1112,7 +1204,7 @@ namespace yy {
 
 
 } // yy
-#line 1116 "calc++-parser.hh" // lalr1.cc:377
+#line 1208 "calc++-parser.hh" // lalr1.cc:377
 
 
 

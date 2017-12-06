@@ -9,6 +9,8 @@ calcxx_driver::calcxx_driver ()
 
 calcxx_driver::~calcxx_driver ()
 {
+	if(tree) 
+		delete tree;
 }
 
 int
