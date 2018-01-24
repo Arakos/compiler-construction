@@ -1,0 +1,40 @@
+rm -f *~ *.o  calc++  calc++-scanner.cc calc++-parser.cc  calc++-scanner.hh calc++-parser.hh calc++-parser.output location.hh stack.hh position.hh
+bison -v -d -o calc++-parser.cc calc++-parser.yy
+calc++-parser.yy: warning: 2 shift/reduce conflicts [-Wconflicts-sr]
+clang++ `llvm-config --cxxflags --ldflags --system-libs --libs all | sed s/no-maybe/no/ ` -rdynamic -O3 -o calc++.o -c calc++.cc
+clang: warning: -Wl,-fuse-ld=gold: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lLLVM-4.0: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-L/usr/lib/llvm-4.0/lib' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+flex  -o calc++-scanner.cc calc++-scanner.ll
+clang++ `llvm-config --cxxflags --ldflags --system-libs --libs all | sed s/no-maybe/no/ ` -rdynamic -O3 -o calc++-scanner.o -c calc++-scanner.cc
+clang: warning: -Wl,-fuse-ld=gold: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lLLVM-4.0: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-L/usr/lib/llvm-4.0/lib' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+clang++ `llvm-config --cxxflags --ldflags --system-libs --libs all | sed s/no-maybe/no/ ` -rdynamic -O3 -o calc++-parser.o -c calc++-parser.cc
+clang: warning: -Wl,-fuse-ld=gold: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lLLVM-4.0: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-L/usr/lib/llvm-4.0/lib' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+calc++-parser.cc:613:9: error: cannot use 'try' with exceptions disabled
+        try
+        ^
+calc++-parser.cc:712:7: error: cannot use 'try' with exceptions disabled
+      try
+      ^
+calc++-parser.cc:1100:9: error: cannot use 'throw' with exceptions disabled
+        throw;
+        ^
+calc++-parser.cc:570:5: error: cannot use 'try' with exceptions disabled
+    try
+    ^
+calc++-parser.yy:143:33: warning: comparison of integers of different signs: 'int' and 'size_type' (aka 'unsigned int') [-Wsign-compare]
+                                                                                                                        for(int i = 0; i < yystack_[4].value.as< std::vector<NewTreeNode*>* > ()->size(); i++) {
+                                                                                                                                       ~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+calc++-parser.yy:189:28: warning: comparison of integers of different signs: 'int' and 'size_type' (aka 'unsigned int') [-Wsign-compare]
+                                                                                for(int i = 0; i < yystack_[2].value.as< std::vector<NewTreeNode*>* > ()->size(); i++) {
+                                                                                               ~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2 warnings and 4 errors generated.
+Makefile:45: recipe for target 'calc++-parser.o' failed
+make: *** [calc++-parser.o] Error 1
